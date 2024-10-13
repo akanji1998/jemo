@@ -13,10 +13,10 @@ header{
 a{
     text-decoration: none;
     /* padding: 10px; */
-    color: white;
+    /* color: white; */
 }
 a:visited{
-    color: white;
+    /* color: white; */
 }
 
 footer a:hover{

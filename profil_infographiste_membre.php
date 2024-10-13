@@ -2,9 +2,9 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="globals.css" />
-        <link rel="stylesheet" href="styleguide.css" />
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="css/globals.css" />
+        <link rel="stylesheet" href="css/styleguide.css" />
+        <link rel="stylesheet" href="css/style.css" />
     </head>
     <body>
         <div class="box">
@@ -15,9 +15,9 @@
                         <div class="logo"></div>
                         <nav>
                             <!-- retour a l'accueil -->
-                            <ul>
+                            <!-- <ul>
                                 <li class="back_users_home_page">Accueil</li>
-                            </ul>
+                            </ul> -->
                         </nav>
 
 
@@ -43,10 +43,10 @@
             <div class="rectangle-div1">
                 <nav>
                     <ul>
-                        <li>Dashboard</li>
-                        <li><a href="modifier_profil_infographiste_membre.html">Modifier mon profil</a></li>
-                        <li>Notification</li>
-                        <li>Publier un projet</li>
+                        <li><a href="profil_infographiste_membre.php">Dashboard</a></li>
+                        <li><a href="modifier_profil_infographiste_membre.php">Modifier mon profil</a></li>
+                        <li><a href="mission.php">Mission</a></li>
+                        <li><a href="mesprojets.php">mes projets</a></li>
                     </ul>
                 </nav>
             </div>
@@ -84,16 +84,16 @@
                                 </ul>
                             </div>
                             
-                            <div class="title_social_links">Liens social</div>
-                            <div class="social_link">
+                            <!-- <div class="title_social_links">Liens social</div> -->
+                            <!-- <div class="social_link">
                                 <ul>
                                     <li><img src="behance.svg" width="18" alt=""> <a href="#">www.behance.com</a></li>
                                     <li><img src="behance.svg" width="18" alt=""> <a href="#">www.behance.com</a></li>
                                     <li><img src="behance.svg" width="18" alt=""> <a href="#">www.behance.com</a></li>
                                 </ul>
-                            </div>
+                            </div> -->
 
-                            <p class="delete_profil"><a href="">supprimer mon profil</a></p>
+                            <p class="delete_profil"><a href="#">supprimer mon profil</a></p>
 
                         </div>
                     </div>
@@ -136,14 +136,14 @@
 
                     
 
-                    <div class="box__contact_profil_wha">
+                    <!-- <div class="box__contact_profil_wha">
                         <div class="numero"><a href="tel:[+225]0545475763"><i></i>Appeler</a></div>
                         <span>OU</span>
                         <div class="numWha"><a href="https://wa.me/2250545475763"> what's app : 05 XX XX XX XX</a></div> 
                         <span>OU</span>
                         <div class="numWha"><a href="/pdf/#"> voir CV</a></div> 
-                    </div>
-                    <p class="delete_profil">supprimer mon profil</p>
+                    </div> -->
+                    <!-- <p class="delete_profil">supprimer mon profil</p> -->
 
                 </div>
             </div>

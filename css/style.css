@@ -787,7 +787,8 @@ main .profil-picture-icon {
 .title_contract,
 .title_diplome,
 .title_work_mode,
-.title_social_links{
+.title_social_links,
+.title_specia{
     font-size: 1.5rem;
     margin: 1.5rem 2rem;
     font-weight: 800;
@@ -819,12 +820,11 @@ main .profil-picture-icon {
     top: 30px;
     border-radius: 50%;
     background-color: #d9d9d9;
-    background-image: url(phto\ say1.png);
     background-size: cover;
     display: flex;
 }
 .profil_picture01::after{
-    content: url(pen-to-square.svg);
+    /* content: url(pen-to-square.svg); */
     display: inline-block;
     width: 30px;
     height: 30px;

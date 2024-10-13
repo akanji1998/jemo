@@ -2,9 +2,9 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="globals.css" />
-        <link rel="stylesheet" href="styleguide.css" />
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="css/globals.css" />
+        <link rel="stylesheet" href="css/styleguide.css" />
+        <link rel="stylesheet" href="css/style.css" />
     </head>
     <body>
         <div class="box">
@@ -64,8 +64,8 @@
                 <!-- juste un design -->
                 <div class="infographiste_summ">
                     <div class="rectangle-div01">
-                        <div class="profil_picture01">
-                            <!-- <img class="phto-say2-icon" alt="" src="phto say2.png"> -->
+                        <div class="profil_picture01" style="background-image: url(media/public/images/photos_membres/phto_say1.png);">
+                            <!-- <img class="phto-say2-icon" alt="" src=""> -->
                         </div>
 
                         <div class="box_summ">
@@ -74,8 +74,13 @@
                                 <div class="origin">Côte d'ivoire, Songon</div>
                             </div>
     
-                            <div class="title_work_mode">Mode de travail</div>
-                            <div class="work_mode">Distance</div>
+                            <!-- <div class="title_work_mode">Mode de travail</div>
+                            <div class="work_mode">Distance</div> -->
+
+                            <div class="title_specia">specialité</div>
+                            <div class="specia">
+                                <span>MONTEUR VIDEO</span>
+                            </div>
 
                             <div class="title_contract">Contrat</div>
                             <div class="contract">
@@ -91,14 +96,14 @@
                                 </ul>
                             </div>
                             
-                            <div class="title_social_links">Liens social</div>
-                            <div class="social_link">
+                            <!-- <div class="title_social_links">Liens social</div> -->
+                            <!-- <div class="social_link">
                                 <ul>
                                     <li><img src="behance.svg" width="18" alt=""> <a href="#">www.behance.com</a></li>
                                     <li><img src="behance.svg" width="18" alt=""> <a href="#">www.behance.com</a></li>
                                     <li><img src="behance.svg" width="18" alt=""> <a href="#">www.behance.com</a></li>
                                 </ul>
-                            </div>
+                            </div> -->
 
                         </div>
                     </div>

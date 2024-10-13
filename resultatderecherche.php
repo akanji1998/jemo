@@ -30,7 +30,7 @@
                     
                     <!-- Card infographistes -->
                     <div class="cardInfographiste">
-                        <a href="profil_consultation.html">
+                        <a href="profil_consultation.php">
                             <div class="rectangle-div_radius">
                                 <div class="profil_picture"><img class="profil-picture-icon" alt="" src="media/public/images/photos membres/phto say.png" ></div>
                                 <div class="description_illustration">

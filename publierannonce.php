@@ -2,9 +2,9 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="globals.css" />
-        <link rel="stylesheet" href="styleguide.css" />
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="css/globals.css" />
+        <link rel="stylesheet" href="css/styleguide.css" />
+        <link rel="stylesheet" href="css/style.css" />
     </head>
     <body>
         <div class="box">
@@ -41,12 +41,11 @@
 
         <main>
             <div class="rectangle-div1">
-                <nav>
+            <nav>
                     <ul>
-                        <li>Dashboard</li>
-                        <li><a href="modifier_profil_infographiste_membre.html">Modifier mon profil</a></li>
-                        <li>Notification</li>
-                        <li>Publier un projet</li>
+                        <li><a href="profil_annonceur_membre.php">Dashboard</a></li>
+                        <li><a href="modifier_profil_annonceur_membre.php">Modifier mon profil</a></li>
+                        <li><a href="publierannonce.php">Publier une annonce</a></li>
                     </ul>
                 </nav>
             </div>
@@ -57,14 +56,14 @@
 
                 <input type="text" id="nom" name="nom" required placeholder="Titre de l'annonce"> <br>
                <textarea name="description_annonce" id="" placeholder="Descrire l'annonce"></textarea>
-                <select name="" id="">
+                <!-- <select name="" id="">
                     <option value="">logo</option>
                     <option value="">affiche</option>
                     <option value="">animation</option>
                     <option value="">Programmation</option>
                     <option value="">Programmation</option>
-                </select>
-                <input type="text" id="prix" name="nom" required placeholder="Somme propose pour la mission">
+                </select> -->
+                <!-- <input type="text" id="prix" name="nom" required placeholder="Somme propose pour la mission"> -->
 
                 <!-- <h3>Type de contrat</h3>
                 <select name="" id="">

@@ -2,9 +2,9 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="globals.css" />
-        <link rel="stylesheet" href="styleguide.css" />
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="css/globals.css" />
+        <link rel="stylesheet" href="css/styleguide.css" />
+        <link rel="stylesheet" href="css/style.css" />
     </head>
     <body>
         <div class="box">
@@ -27,7 +27,7 @@
                             </div>
                             <div class="menu" id="menu">
                                 <ul>
-                                    <li><a href="connexion.html">Se connecter</a></li>
+                                    <li><a href="connexion.php">Se connecter</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -39,12 +39,11 @@
 
         <main>
             <div class="rectangle-div1">
-                <nav>
+            <nav>
                     <ul>
-                        <li>Dashboard</li>
-                        <li><a href="modifier_profil_infographiste_membre.html">Modifier mon profil</a></li>
-                        <li>Notification</li>
-                        <li>Publier un projet</li>
+                        <li><a href="profil_annonceur_membre.php">Dashboard</a></li>
+                        <li><a href="modifier_profil_annonceur_membre.php">Modifier mon profil</a></li>
+                        <li><a href="publierannonce.php">Publier une annonce</a></li>
                     </ul>
                 </nav>
             </div>
@@ -74,20 +73,21 @@
                      
                      <input type="text" id="nom" name="nom" required placeholder="nom"> <br>
                      <input type="text" id="prenom" name="nom" required placeholder="prenom">
+                     <!-- faire select option  -->
                      <input type="text" id="pays" name="nom" required placeholder="Côte d’ivoire">
                      <input type="text" id="commune" name="nom" required placeholder="Songon">
                      <input type="text" id="commune" name="nom" required placeholder="nom entreprise">
                      
                     
                      
-                     <h3>Liens social</h3>
+                     <!-- <h3>Liens social</h3>
                      <div class="social_link">
                          <ul>
                              <li><input type="text" id="" name="" placeholder="social link"></li>
                              <li><input type="text" id="" name="" placeholder="social link"></li>
                              <li><input type="text" id="" name="" placeholder="social link"></li>
                             </ul>
-                        </div>
+                        </div> -->
                         
                         <h3>Contact <span></span></h3>
                         <input type="text" id="contact" name="nom" required placeholder="00 00 00 00 00">

@@ -2,9 +2,9 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="globals.css" />
-        <link rel="stylesheet" href="styleguide.css" />
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="css/globals.css" />
+        <link rel="stylesheet" href="css/styleguide.css" />
+        <link rel="stylesheet" href="css/style.css" />
     </head>
     <body>
         <div class="box">
@@ -41,12 +41,11 @@
 
         <main>
             <div class="rectangle-div1">
-                <nav>
+            <nav>
                     <ul>
-                        <li>Dashboard</li>
-                        <li><a href="modifier_profil_infographiste_membre.html">Modifier mon profil</a></li>
-                        <li>Notification</li>
-                        <li><a href="publier_annonce.html">Publier un projet</a></li>
+                        <li><a href="profil_annonceur_membre.php">Dashboard</a></li>
+                        <li><a href="modifier_profil_annonceur_membre.php">Modifier mon profil</a></li>
+                        <li><a href="publierannonce.php">Publier une annonce</a></li>
                     </ul>
                 </nav>
             </div>
@@ -68,13 +67,13 @@
                             </div>
     
                             
-                            <div class="title_social_links">Liens social</div>
-                            <div class="social_link">
+                            <!-- <div class="title_social_links">Liens social</div> -->
+                            <!-- <div class="social_link">
                                 <ul>
                                     <li><img src="behance.svg" width="18" alt=""> <a href="#">www.behance.com</a></li>
                                     <li><img src="behance.svg" width="18" alt=""> <a href="#">www.behance.com</a></li>
                                 </ul>
-                            </div>
+                            </div> -->
 
                             <p class="delete_profil"><a href="">supprimer mon profil</a></p>
 
