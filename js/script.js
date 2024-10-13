@@ -346,5 +346,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  // popfop
+  // MISSION  PAGINATION
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const pagination_missionLinks = document.querySelectorAll('.pagination_mission a');
+    pagination_missionLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const activeLink = document.querySelector('.pagination_mission .active');
+            if (activeLink) {
+                activeLink.classList.remove('active');
+            }
+            if (!this.classList.contains('prev') && !this.classList.contains('next')) {
+                this.parentElement.classList.add('active');
+            }
+        });
+    });
+});
+
+
+
+
+// PROFIL PAGINATION
   

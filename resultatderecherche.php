@@ -51,6 +51,19 @@
                         </a>
                     </div>
                 </div>
+
+                <!-- pagination -->
+
+                <ul class="pagination_profil_infogr">
+                <li><a href="#" class="prev">&laquo;</a></li>
+                <li><a href="#">1</a></li>
+                <li class="active"><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#" class="next">&raquo;</a></li>
+            </ul>
+
         </main>
 
         <!-- FOOTER -->

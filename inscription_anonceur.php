@@ -24,16 +24,11 @@
     <header class="section header">
         <div class="box_header1">
             <div class="logo1"></div><br>
-            <h4><a href="index.html">retour</a></h4>
+            <h4><a href="index.php">retour</a></h4>
 
             <div class="user-menu-container">
                 <div class="user-icon" id="userIcon">
                     <!-- <div class="circle-user"></div> -->
-                </div>
-                <div class="menu" id="menu">
-                    <ul>
-                        <li><a href="connexion.html">Se connecter</a></li>
-                    </ul>
                 </div>
             </div>
         </div>

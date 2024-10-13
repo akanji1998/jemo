@@ -1310,3 +1310,113 @@ input{
       opacity: 0;
     }
   }
+
+
+
+  .bgcolor_header_mission{
+    background-color: #800361 !important;
+  }
+
+  .container_mission_bar{
+  /* background-color: white; */
+  padding: 2rem;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 1000px;
+  /* box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); */
+  margin: 0 auto;
+  font-family: raleway;
+  }
+
+  .container_resultat_mission{
+    /* background-color: white; */
+  padding: 3rem;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 1000px;
+  /* box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); */
+  margin: 0 auto;
+  margin-top: 0px;
+  font-family: raleway;
+  }
+
+
+
+  .pagination_mission {
+    display: flex;
+    justify-content: start;
+    list-style: none;
+    padding: 0;
+}
+.pagination_mission li {
+    margin: 0 5px;
+}
+.pagination_mission a {
+    text-decoration: none;
+    color: #007bff;
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+.pagination_mission a:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+.pagination_mission .active a {
+    background-color: #007bff;
+    color: #fff;
+    cursor: default;
+}
+
+
+
+/* pagination profil */
+
+.pagination_profil_infogr {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+.pagination_profil_infogr li {
+    margin: 0 5px;
+}
+.pagination_profil_infogr a {
+    text-decoration: none;
+    color: #28a745;
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+.pagination_profil_infogr a:hover {
+    background-color: #28a745;
+    color: #fff;
+}
+.pagination_profil_infogr .active a {
+    background-color: #28a745;
+    color: #fff;
+    cursor: default;
+}
+.pagination_mission li {
+    margin: 0 5px;
+}
+
+.pagination_mission a {
+    text-decoration: none;
+    color: #007bff;
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+.pagination_mission a:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+.pagination_mission .active a {
+    background-color: #007bff;
+    color: #fff;
+    cursor: default;
+}
