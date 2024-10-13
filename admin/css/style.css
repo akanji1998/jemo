@@ -1,0 +1,91 @@
+/* Defining color variables */
+:root {
+    --gray-light: rgb(141, 147, 150);  /* Gray Light */
+    --gray-medium: rgb(87, 95, 99);    /* Gray Medium */
+    --black: rgb(20, 22, 23);          /* Black */
+    --pink-light: rgb(250, 225, 244);  /* Light Pink */
+    --purple: rgb(128, 3, 97);         /* Purple */
+    --green: rgb(52, 192, 21);         /* Green */
+    --white: rgb(245, 247, 250);       /* White */
+    --green-dark: rgb(11, 65, 37);     /* Dark Green */
+    --red: rgb(215, 20, 20);           /* Red */
+    --yellow: rgb(255, 212, 49);       /* Yellow */
+    --orange: rgb(255, 131, 35);       /* Orange */
+    --amber: rgb(215, 74, 20);         /* Amber */
+    --salmon: rgb(250, 160, 125);      /* Salmon */
+    --rose: rgb(250, 125, 125);        /* Rose */
+}
+
+/* Styling the sidebar */
+.sidebar {
+    background-color: var(--gray-medium);  /* Sidebar uses medium gray */
+    color: var(--white);  /* Text color for sidebar */
+}
+
+.sidebar .nav-link {
+    color: var(--gray-medium);  /* Sidebar links */
+}
+
+.sidebar .nav-link.active {
+    background-color: var(--green);  /* Active link uses green */
+    color: var(--white);
+}
+
+.sidebar .nav-link:hover {
+    background-color: var(--green-dark);  /* Hover effect for links */
+    color: var(--white);  /* Text color for sidebar */
+}
+
+/* Main content and cards */
+.card {
+    background-color: var(--white);  /* Card background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-color: var(--gray-light);  /* Border color */
+}
+
+.card-title {
+    color: var(--purple);  /* Card title uses purple */
+}
+
+.card-text {
+    color: var(--black);  /* Main text uses black */
+}
+
+.card-header {
+    background-color: var(--gray-light);  /* Card header background */
+    color: var(--black);
+}
+
+/* Footer */
+footer {
+    background-color: var(--gray-light);
+    color: var(--black);
+}
+
+/* Button for user dropdown */
+.btn-light {
+    background-color: var(--yellow);  /* Yellow button */
+    color: var(--black);
+}
+
+.btn-light:hover {
+    background-color: var(--amber);  /* Amber hover effect */
+}
+
+
+/* Adjust canvas size */
+.traffic-chart {
+    width: 80% !important;
+    /* height: 300px !important; Set the desired height */
+}
+
+
+.btn-success {
+    background-color: #8dc1a9;
+    border-color: #8dc1a9;
+}
+
+.btn-success:hover {
+    background-color: #76a78b;
+    border-color: #76a78b;
+}

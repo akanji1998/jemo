@@ -1,0 +1,14 @@
+{
+  "usedUsernames": [
+    "user123",
+    "admin",
+    "testuser",
+    "john_doe",
+    "jane_smith"
+  ],
+  "usedEmails": [
+    "test@example.com",
+    "admin@domain.com",
+    "user@domain.com"
+  ]
+}

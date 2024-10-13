@@ -1,0 +1,189 @@
+:root {
+    --rgb141-147-150: rgba(141, 147, 150, 1);
+    --rgb87-95-99: rgba(87, 95, 99, 1);
+    --rgb20-22-23: rgba(20, 22, 23, 1);
+    --rgb250-225-244: rgba(250, 225, 244, 1);
+    --rgb128-3-97: rgba(128, 3, 97, 1);
+    --rgb52-192-21: rgba(52, 192, 21, 1);
+    --rgb245-247-250: rgba(245, 247, 250, 1);
+    --rgb11-65-37: rgba(11, 65, 37, 1);
+    --rgb215-20-20: rgba(215, 20, 20, 1);
+    --rgb255-212-49: rgba(255, 212, 49, 1);
+    --rgb255-131-35: rgba(255, 131, 35, 1);
+    --rgb215-74-20: rgba(215, 74, 20, 1);
+    --rgb250-160-125: rgba(250, 160, 125, 1);
+    --rgb250-125-125: rgba(250, 125, 125, 1);
+    --libre-caslon-text-italic-72px-font-family: "Libre Caslon Text", Helvetica;
+    --libre-caslon-text-italic-72px-font-weight: 400;
+    --libre-caslon-text-italic-72px-font-size: 72px;
+    --libre-caslon-text-italic-72px-letter-spacing: 0px;
+    --libre-caslon-text-italic-72px-line-height: normal;
+    --libre-caslon-text-italic-72px-font-style: italic;
+    --libre-caslon-text-italic-48px-font-family: "Libre Caslon Text", Helvetica;
+    --libre-caslon-text-italic-48px-font-weight: 400;
+    --libre-caslon-text-italic-48px-font-size: 48px;
+    --libre-caslon-text-italic-48px-letter-spacing: 0px;
+    --libre-caslon-text-italic-48px-line-height: normal;
+    --libre-caslon-text-italic-48px-font-style: italic;
+    --libre-caslon-text-italic-32px-font-family: "Libre Caslon Text", Helvetica;
+    --libre-caslon-text-italic-32px-font-weight: 400;
+    --libre-caslon-text-italic-32px-font-size: 32px;
+    --libre-caslon-text-italic-32px-letter-spacing: 0px;
+    --libre-caslon-text-italic-32px-line-height: normal;
+    --libre-caslon-text-italic-32px-font-style: italic;
+    --libre-caslon-text-italic-24px-font-family: "Libre Caslon Text", Helvetica;
+    --libre-caslon-text-italic-24px-font-weight: 400;
+    --libre-caslon-text-italic-24px-font-size: 24px;
+    --libre-caslon-text-italic-24px-letter-spacing: 0px;
+    --libre-caslon-text-italic-24px-line-height: normal;
+    --libre-caslon-text-italic-24px-font-style: italic;
+    --libre-caslon-text-italic-18px-font-family: "Libre Caslon Text", Helvetica;
+    --libre-caslon-text-italic-18px-font-weight: 400;
+    --libre-caslon-text-italic-18px-font-size: 18px;
+    --libre-caslon-text-italic-18px-letter-spacing: 0px;
+    --libre-caslon-text-italic-18px-line-height: normal;
+    --libre-caslon-text-italic-18px-font-style: italic;
+    --epilogue-bold-72px-font-family: "Epilogue", Helvetica;
+    --epilogue-bold-72px-font-weight: 700;
+    --epilogue-bold-72px-font-size: 72px;
+    --epilogue-bold-72px-letter-spacing: 0px;
+    --epilogue-bold-72px-line-height: normal;
+    --epilogue-bold-72px-font-style: normal;
+    --epilogue-regular-48px-font-family: "Epilogue", Helvetica;
+    --epilogue-regular-48px-font-weight: 400;
+    --epilogue-regular-48px-font-size: 48px;
+    --epilogue-regular-48px-letter-spacing: 0px;
+    --epilogue-regular-48px-line-height: normal;
+    --epilogue-regular-48px-font-style: normal;
+    --epilogue-regular-18px-font-family: "Epilogue", Helvetica;
+    --epilogue-regular-18px-font-weight: 400;
+    --epilogue-regular-18px-font-size: 18px;
+    --epilogue-regular-18px-letter-spacing: 0px;
+    --epilogue-regular-18px-line-height: normal;
+    --epilogue-regular-18px-font-style: normal;
+    --epilogue-regular-24px-font-family: "Epilogue", Helvetica;
+    --epilogue-regular-24px-font-weight: 400;
+    --epilogue-regular-24px-font-size: 24px;
+    --epilogue-regular-24px-letter-spacing: 0px;
+    --epilogue-regular-24px-line-height: normal;
+    --epilogue-regular-24px-font-style: normal;
+    --epilogue-bold-32px-font-family: "Epilogue", Helvetica;
+    --epilogue-bold-32px-font-weight: 700;
+    --epilogue-bold-32px-font-size: 32px;
+    --epilogue-bold-32px-letter-spacing: 0px;
+    --epilogue-bold-32px-line-height: normal;
+    --epilogue-bold-32px-font-style: normal;
+    --epilogue-regular-32px-font-family: "Epilogue", Helvetica;
+    --epilogue-regular-32px-font-weight: 400;
+    --epilogue-regular-32px-font-size: 32px;
+    --epilogue-regular-32px-letter-spacing: 0px;
+    --epilogue-regular-32px-line-height: normal;
+    --epilogue-regular-32px-font-style: normal;
+    --epilogue-regular-14px-font-family: "Epilogue", Helvetica;
+    --epilogue-regular-14px-font-weight: 400;
+    --epilogue-regular-14px-font-size: 14px;
+    --epilogue-regular-14px-letter-spacing: 0px;
+    --epilogue-regular-14px-line-height: normal;
+    --epilogue-regular-14px-font-style: normal;
+    --libre-caslon-text-italic-14px-font-family: "Libre Caslon Text", Helvetica;
+    --libre-caslon-text-italic-14px-font-weight: 400;
+    --libre-caslon-text-italic-14px-font-size: 14px;
+    --libre-caslon-text-italic-14px-letter-spacing: 0px;
+    --libre-caslon-text-italic-14px-line-height: normal;
+    --libre-caslon-text-italic-14px-font-style: italic;
+    --libre-caslon-text-italic-12px-font-family: "Libre Caslon Text", Helvetica;
+    --libre-caslon-text-italic-12px-font-weight: 400;
+    --libre-caslon-text-italic-12px-font-size: 12px;
+    --libre-caslon-text-italic-12px-letter-spacing: 0px;
+    --libre-caslon-text-italic-12px-line-height: normal;
+    --libre-caslon-text-italic-12px-font-style: italic;
+    --libre-caslon-text-italic-10px-font-family: "Libre Caslon Text", Helvetica;
+    --libre-caslon-text-italic-10px-font-weight: 400;
+    --libre-caslon-text-italic-10px-font-size: 10px;
+    --libre-caslon-text-italic-10px-letter-spacing: 0px;
+    --libre-caslon-text-italic-10px-line-height: normal;
+    --libre-caslon-text-italic-10px-font-style: italic;
+    --libre-caslon-text-italic-8px-font-family: "Libre Caslon Text", Helvetica;
+    --libre-caslon-text-italic-8px-font-weight: 400;
+    --libre-caslon-text-italic-8px-font-size: 8px;
+    --libre-caslon-text-italic-8px-letter-spacing: 0px;
+    --libre-caslon-text-italic-8px-line-height: normal;
+    --libre-caslon-text-italic-8px-font-style: italic;
+    --libre-caslon-text-italic-6px-font-family: "Libre Caslon Text", Helvetica;
+    --libre-caslon-text-italic-6px-font-weight: 400;
+    --libre-caslon-text-italic-6px-font-size: 6px;
+    --libre-caslon-text-italic-6px-letter-spacing: 0px;
+    --libre-caslon-text-italic-6px-line-height: normal;
+    --libre-caslon-text-italic-6px-font-style: italic;
+    --epilogue-regular-4px-font-family: "Epilogue", Helvetica;
+    --epilogue-regular-4px-font-weight: 400;
+    --epilogue-regular-4px-font-size: 4px;
+    --epilogue-regular-4px-letter-spacing: 0px;
+    --epilogue-regular-4px-line-height: normal;
+    --epilogue-regular-4px-font-style: normal;
+    --epilogue-regular-6px-font-family: "Epilogue", Helvetica;
+    --epilogue-regular-6px-font-weight: 400;
+    --epilogue-regular-6px-font-size: 6px;
+    --epilogue-regular-6px-letter-spacing: 0px;
+    --epilogue-regular-6px-line-height: normal;
+    --epilogue-regular-6px-font-style: normal;
+    --epilogue-regular-8px-font-family: "Epilogue", Helvetica;
+    --epilogue-regular-8px-font-weight: 400;
+    --epilogue-regular-8px-font-size: 8px;
+    --epilogue-regular-8px-letter-spacing: 0px;
+    --epilogue-regular-8px-line-height: normal;
+    --epilogue-regular-8px-font-style: normal;
+    --epilogue-regular-10px-font-family: "Epilogue", Helvetica;
+    --epilogue-regular-10px-font-weight: 400;
+    --epilogue-regular-10px-font-size: 10px;
+    --epilogue-regular-10px-letter-spacing: 0px;
+    --epilogue-regular-10px-line-height: normal;
+    --epilogue-regular-10px-font-style: normal;
+    --epilogue-regular-12px-font-family: "Epilogue", Helvetica;
+    --epilogue-regular-12px-font-weight: 400;
+    --epilogue-regular-12px-font-size: 12px;
+    --epilogue-regular-12px-letter-spacing: 0px;
+    --epilogue-regular-12px-line-height: normal;
+    --epilogue-regular-12px-font-style: normal;
+    --libre-caslon-text-italic-4px-font-family: "Libre Caslon Text", Helvetica;
+    --libre-caslon-text-italic-4px-font-weight: 400;
+    --libre-caslon-text-italic-4px-font-size: 4px;
+    --libre-caslon-text-italic-4px-letter-spacing: 0px;
+    --libre-caslon-text-italic-4px-line-height: normal;
+    --libre-caslon-text-italic-4px-font-style: italic;
+}
+
+
+:root{
+
+    /* PREMIER COULEUR */
+    --primary-color:#018D36;
+
+    /* BOUTONS */
+    --green1:#B8FFD3;
+    --green2:#089f42;
+
+    --btn-b:#015CCF;
+    --btn-r:#CC1615;
+    --btn-j:#F2DA03; 
+
+    /*  OMBRES PORTEE */
+    --box-shadow:#62626233;
+    --gray1:rgba(98, 98, 98, 0.9);
+
+    /* ARRIERE PLAN */
+    --bg-color-primary:#FFF;
+
+    /* COULEURS TEXTES */
+    --text-color:#a7a7a7;;
+
+    /* RESEAU SOCIAUX*/
+    --youtube: #ff0000;
+    --twitter: #1ab3ff;
+    --mail : #393939;
+    --facebook: #0456d2;
+}
+
+
+
+
