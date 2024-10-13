@@ -362,10 +362,70 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
+
+
+    const pagination_profil_infogrLinks = document.querySelectorAll('.pagination_profil_infogr a');
+    pagination_profil_infogrLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const activeLink = document.querySelector('.pagination_profil_infogr .active');
+            if (activeLink) {
+                activeLink.classList.remove('active');
+            }
+            if (!this.classList.contains('prev') && !this.classList.contains('next')) {
+                this.parentElement.classList.add('active');
+            }
+        });
+    });
 });
 
 
 
+// fonction limite de selection
 
-// PROFIL PAGINATION
+function limitSelection() {
+  // Sélectionner toutes les cases à cocher
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  // Filtrer les cases cochées
+  const checkedCheckboxes = Array.from(checkboxes).filter(checkbox => checkbox.checked);
   
+  // Désactiver les autres cases si 3 sont déjà cochées
+  if (checkedCheckboxes.length >= 3) {
+    checkboxes.forEach(checkbox => {
+      if (!checkbox.checked) {
+        checkbox.disabled = true;
+      }
+    });
+  } else {
+    // Réactiver toutes les cases si moins de 3 sont cochées
+    checkboxes.forEach(checkbox => {
+      checkbox.disabled = false;
+    });
+  }
+}
+
+
+
+// // Script JavaScript pour vérifier si le champ est vide
+// function validateSearchInput(event) {
+//   const inputField = document.getElementById('searchInput');
+//   if (inputField.value.trim() === "") {
+//       // Empêcher l'envoi du formulaire si le champ est vide
+//       event.preventDefault();
+//       // Ajouter la classe qui provoque l'animation si le champ est vide
+//       inputField.classList.add('input-error');
+      
+//       // Supprimer la classe après l'animation pour permettre de la réappliquer plus tard
+//       setTimeout(() => {
+//           inputField.classList.remove('input-error');
+//       }, 300);
+//   } else {
+//       // Autoriser l'envoi du formulaire si le champ n'est pas vide
+//       event.target.form.submit();
+//   }
+// }
+
+
+
+
+

@@ -1148,9 +1148,9 @@ main .profil-picture-icon {
     border: 1px solid #707070;
     cursor: pointer;
 }
-.job_item a{
-    /* color: gray; */
-}
+/* .job_item a{
+    color: gray;
+} */
 
 .container_cards_categories,
 .container_cards_top_info{
@@ -1419,4 +1419,122 @@ input{
     background-color: #007bff;
     color: #fff;
     cursor: default;
+}
+
+
+
+/* radio connexion */
+
+.radio-buttons_connexion {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.radio-buttons_connexion input[type="radio"] {
+    display: none;
+}
+
+
+
+/*  */
+
+/* Masquer les inputs radio par défaut */
+input[type="radio"] {
+    display: none;
+  }
+
+  /* Conteneur des options */
+  .radio-container {
+    display: flex;
+    justify-content: center; /* Centre horizontalement les éléments */
+    align-items: center; /* Centre verticalement les éléments */
+    margin-top: 20px;
+  }
+
+  /* Style des labels */
+  .radio-label {
+    padding: 10px 20px;
+    border: 2px solid #3a6936; /* Couleur de la bordure */
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-right: 10px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  /* Style quand le bouton radio est sélectionné */
+  input[type="radio"]:checked + .radio-label {
+    background-color: #3a6936; /* Couleur de fond pour l'option active */
+    color: white;
+  }
+
+  /* Style des boutons non sélectionnés */
+  .radio-label {
+    background-color: white;
+    color: #3a6936;
+  }
+
+
+  /* Masquer les checkboxes par défaut */
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  /* Conteneur des options centré */
+  .checkbox-container {
+    display: flex;
+    justify-content: center; /* Centre horizontalement les éléments */
+    align-items: center; /* Centre verticalement les éléments */
+    margin-top: 20px;
+  }
+
+  /* Style des labels */
+  .checkbox-label {
+    padding: 10px 20px;
+    border: 2px solid #3a6936; /* Couleur de la bordure */
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-right: 10px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  /* Style quand la case est cochée */
+  input[type="checkbox"]:checked + .checkbox-label {
+    background-color: #3a6936; /* Couleur de fond pour l'option sélectionnée */
+    color: white;
+  }
+
+  /* Style des boutons non sélectionnés */
+  .checkbox-label {
+    background-color: white;
+    color: #3a6936;
+  }
+
+
+
+   /* Code CSS pour l'animation de tremblement */
+   .input-box {
+    padding: 10px;
+    margin: 20px;
+}
+
+.input-error {
+    border: 2px solid red;
+    animation: shake 0.3s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    75% {
+        transform: translateX(-5px);
+    }
 }

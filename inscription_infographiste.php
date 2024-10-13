@@ -10,16 +10,11 @@
     <header class="section header">
         <div class="box_header1">
             <div class="logo1"></div><br>
-            <h4><a href="index.html">retour</a></h4>
+            <h4><a href="index.php">retour</a></h4>
 
             <div class="user-menu-container">
                 <div class="user-icon" id="userIcon">
                     <!-- <div class="circle-user"></div> -->
-                </div>
-                <div class="menu" id="menu">
-                    <ul>
-                        <li><a href="connexion.html">Se connecter</a></li>
-                    </ul>
                 </div>
             </div>
         </div>
@@ -30,7 +25,7 @@
         <form id="signupForm">
             <!-- Étape 1 -->
             <div class="form-step form-step-active">
-                <h2>Inscription infographiste</h2>
+                <h2 class="title_inter">Inscription infographiste</h2>
                 <div class="box_radio_btn_step">
                     <div class="radio_btn_step step-active"></div>
                     <div class="radio_btn_step"></div>
@@ -66,7 +61,7 @@
 
             <!-- Étape 2 -->
             <div class="form-step">
-                <h2>Inscription infographiste</h2>
+                <h2 class="title_inter">Inscription infographiste</h2>
                 <div class="box_radio_btn_step">
                     <div class="radio_btn_step "></div>
                     <div class="radio_btn_step step-active"></div>
@@ -87,6 +82,22 @@
                         <input type="file" id="photo" name="photo" accept="image/*" style="display: none;">
                     </div>
                 </div>
+
+
+                <h4>Vous êtes intéressé par (vous pouvez sélectionner 3 choix maximum)</h4>
+                <div class="checkbox-container">
+                <input type="checkbox" id="cdi" name="interest" value="CDI" onclick="limitSelection()">
+                <label class="checkbox-label" for="cdi">CDI</label>
+
+                <input type="checkbox" id="cdd" name="interest" value="CDD" onclick="limitSelection()">
+                <label class="checkbox-label" for="cdd">CDD</label>
+
+                <input type="checkbox" id="stage" name="interest" value="Stage" onclick="limitSelection()">
+                <label class="checkbox-label" for="stage">STAGE</label>
+
+                <input type="checkbox" id="freelance" name="interest" value="Freelance" onclick="limitSelection()">
+                <label class="checkbox-label" for="freelance">FREELANCE</label>
+                </div>
                 
                 <div class="box_btn">
                 <button type="button" class="btn-prev">Retour</button>
@@ -96,7 +107,7 @@
 
             <!-- Étape 3 -->
             <div class="form-step">
-                <h2>Inscription infographiste</h2>
+                <h2 class="title_inter">Inscription infographiste</h2>
                 <div class="box_radio_btn_step">
                     <div class="radio_btn_step"></div>
                     <div class="radio_btn_step"></div>

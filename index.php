@@ -15,7 +15,7 @@
                     dont vous avez besoin</h2>
             </div>
             <div class="box_searchform">
-                <form class="searchform" action="resultatderecherche.php">
+                <form class="searchform" action="">
                     <input type="search" placeholder="ville, métier infographiste, commune"><input type="submit" value="Trouver">
                 </form>
             </div>

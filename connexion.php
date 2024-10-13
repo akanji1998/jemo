@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <header class="header">
+    <header class="header section">
     <div class="box_header1">
             <div class="logo1"></div><br>
             <h4><a href="index.php">retour</a></h4>
@@ -23,11 +23,16 @@
     <form action="" class="connexion_form">
         <div class="box_connexion">
         <h2 class="title_inter">Connexion</h2>             
+        <div class="radio-container">
+        <input type="radio" id="annonceur" name="user_type" value="annonceur" checked>
+        <label class="radio-label" for="annonceur">annonceur</label>
+
+        <input type="radio" id="infographe" name="user_type" value="infographe">
+        <label class="radio-label" for="infographe">infographe</label>
+        </div>
         <input type="text" id="username" name="username" required placeholder="username ou email">  <br>
         
         <input type="password" id="password" name="password" required placeholder="Mot de passe"> 
-        <input type="radio" id="option3" name="choix" value="option3"> infographiste
-        <input type="radio" id="option4" name="choix" value="option4"> annonce
         <div class="forget_password">
             <a href="reinitialiser.php">Mot de passe oublié ?</a>
         </div>
