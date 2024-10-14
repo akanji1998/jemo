@@ -14,28 +14,28 @@
     <div class="d-flex flex-column vh-100">
         <div class="container-fluid flex-grow-1">
             <div class="row h-100">
-                <!-- Sidebar -->
+                  <!-- Sidebar -->
                 <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse vh-100 border-end border-1">
                     <div class="position-sticky pt-3 d-flex flex-column h-100">
                         <div class="text-center mb-4">
-                            <img src="jemo-logo.png" alt="Jemo Logo" class="img-fluid mb-2">
-                            <h4>Center</h4>
+                        <img src="../media/icon/logo_green.svg" alt="Jemo Logo" class="img-fluid mb-2">
+                        <h4 class="color_txt1">Center</h4>
                         </div>
                         <ul class="nav flex-column mb-auto">
                             <li class="nav-item">
-                                <a class="nav-link active" href="index.html">Dashboard</a>
+                                <a class="nav-link active" href="index.php">Dashboard</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="infographiste.html">Infographistes</a>
+                                <a class="nav-link" href="infographiste.php">Infographistes</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="domaine_infographe.html">domaine infographe</a>
+                                <a class="nav-link" href="domaine_infographe.php">domaine infographiste</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="annonceur.html">Annonceurs</a>
+                                <a class="nav-link" href="annonceur.php">Annonceurs</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="annonce.html">Annonce</a>
+                                <a class="nav-link" href="annonce.php">Annonce</a>
                             </li>
 
                             <!-- Accordion for Articles -->
@@ -50,9 +50,9 @@
                                         <div id="collapseArticles" class="accordion-collapse collapse" aria-labelledby="headingArticles" data-bs-parent="#accordionArticles">
                                             <div class="accordion-body">
                                                 <ul class="list-unstyled">
-                                                    <li><a class="nav-link" href="ecrire_article.html">Écrire article</a></li>
-                                                    <li><a class="nav-link" href="liste_article.html">Tous les articles</a></li>
-                                                    <li><a class="nav-link" href="categories_articles.html">Catégories</a></li>
+                                                    <li><a class="nav-link" href="ecrire_article.php">Écrire article</a></li>
+                                                    <li><a class="nav-link" href="liste_article.php">Tous les articles</a></li>
+                                                    <!-- <li><a class="nav-link" href="categories_articles.html">Catégories</a></li> -->
                                                 </ul>
                                             </div>
                                         </div>
@@ -61,13 +61,13 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="parametre.html">Paramètres</a>
+                                <a class="nav-link" href="parametre.php">Paramètres</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="administrateur.html">Administrateurs</a>
+                                <a class="nav-link" href="administrateur.php">Administrateurs</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="documentation.html">Documentation Jemo</a>
+                                <a class="nav-link" href="documentation.php">Documentation Jemo</a>
                             </li>
                         </ul>
                     </div>
@@ -88,13 +88,13 @@
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <img class="img-profile" src="pp1.png" width="35">
+                                    <img class="img-profile" src="../media/public/images/photos_membres/ppp.png" width="35">
                                     <span class="mr-2 d-none d-lg-inline text-gray-600 small">Michel Amani</span>
                                 </a>
                                 <!-- Dropdown - User Information -->
                                 <div class="dropdown-menu dropdown-menu-end shadow animated--grow-in"
                                     aria-labelledby="userDropdown">
-                                    <a class="dropdown-item" href="profile.html">
+                                    <a class="dropdown-item" href="profile.php">
                                         <i class="fas fa-user fa-sm fa-fw me-2 text-gray-400"></i>
                                         Profile
                                     </a>
@@ -131,10 +131,10 @@
                                             <p class="card-text fs-3">2,469</p>
                                         </div>
                                         
-                                        <div class="col-md-3 mb-3 d-flex flex-column flex-md-row justify-content-between">
+                                        <!-- <div class="col-md-3 mb-3 d-flex flex-column flex-md-row justify-content-between">
                                             <h5 class="card-title">Revenu publicitaire</h5>
                                             <p class="card-text fs-3">100 XOF</p>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -173,7 +173,7 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Annuler</button>
-                    <a class="btn btn-success" href="login.html">Se déconnecter</a>
+                    <a class="btn btn-success" href="login.php">Se déconnecter</a>
                 </div>
             </div>
         </div>

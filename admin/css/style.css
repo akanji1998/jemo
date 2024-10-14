@@ -89,3 +89,8 @@ footer {
     background-color: #76a78b;
     border-color: #76a78b;
 }
+
+
+.color_txt1{
+    color: var(--green-dark);
+}
