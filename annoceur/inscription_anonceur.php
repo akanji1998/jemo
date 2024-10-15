@@ -1,3 +1,14 @@
+<?php
+
+
+include '../database/connexion.php';
+
+?>
+
+<!-- Head et doctype -->
+<?php include '../composants/header.php'; ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +35,7 @@
     <header class="section header">
         <div class="box_header1">
             <div class="logo1"></div><br>
-            <h4><a href="index.php">retour</a></h4>
+            <h4><a href="../index.php">retour</a></h4>
 
             <div class="user-menu-container">
                 <div class="user-icon" id="userIcon">

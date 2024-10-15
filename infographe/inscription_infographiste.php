@@ -1,16 +1,25 @@
+<?php
+
+
+include '../database/connexion.php';
+
+?>
+
+<!-- Head et doctype -->
+<?php include '../composants/header.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="css/globals.css" />
-    <link rel="stylesheet" href="css/styleguide.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="../css/globals.css" />
+    <link rel="stylesheet" href="../css/styleguide.css" />
+    <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
     <header class="section header">
         <div class="box_header1">
             <div class="logo1"></div><br>
-            <h4><a href="index.php">retour</a></h4>
+            <h4><a href="../index.php">retour</a></h4>
 
             <div class="user-menu-container">
                 <div class="user-icon" id="userIcon">
@@ -127,7 +136,96 @@
         </form>
     </div>
 
-    <script src="js/script.js"></script>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/script.js"></script>
+    <!-- <script>
+        $(document).ready(function() {
+    let currentStep = 0;
+    const formSteps = $(".form-step");
+    
+    // Afficher la première étape
+    formSteps.eq(currentStep).addClass("form-step-active");
+
+    // Navigation entre les étapes
+    $(".btn-next").on("click", function() {
+        if (validateStep(currentStep)) {
+            formSteps.eq(currentStep).removeClass("form-step-active");
+            currentStep++;
+            formSteps.eq(currentStep).addClass("form-step-active");
+        }
+    });
+
+    $(".btn-prev").on("click", function() {
+        formSteps.eq(currentStep).removeClass("form-step-active");
+        currentStep--;
+        formSteps.eq(currentStep).addClass("form-step-active");
+    });
+
+    // Validation des champs pour chaque étape
+    function validateStep(step) {
+        let isValid = true;
+        const inputs = formSteps.eq(step).find("input, select");
+        inputs.each(function() {
+            if (!this.checkValidity()) {
+                $(this).addClass("is-invalid");
+                isValid = false;
+            } else {
+                $(this).removeClass("is-invalid");
+            }
+        });
+        return isValid;
+    }
+
+    // Limitation des choix de la case à cocher à 3 maximum
+    $('input[type="checkbox"]').on('click', limitSelection);
+    
+    function limitSelection() {
+        const checkedCount = $('input[name="interest"]:checked').length;
+        if (checkedCount >= 3) {
+            $('input[name="interest"]:not(:checked)').prop('disabled', true);
+        } else {
+            $('input[name="interest"]').prop('disabled', false);
+        }
+    }
+
+    // Gestion du drag and drop pour la photo
+    $('#dragDropArea').on('click', function() {
+        $('#photo').click();
+    });
+
+    $('#photo').on('change', function(event) {
+        const fileName = event.target.files[0].name;
+        $('#dragDropArea p').text(fileName);
+    });
+
+    // Envoi du formulaire via AJAX
+    $('#signupForm').on('submit', function(e) {
+        e.preventDefault();
+        if (!validateStep(currentStep)) {
+            return;
+        }
+
+        const formData = new FormData(this); // Crée un objet FormData pour l'envoi avec fichier
+        
+        $.ajax({
+            url: 'https://votre-api-endpoint.com/register', // Remplacez par votre URL
+            method: 'POST',
+            data: formData,
+            processData: false, // Nécessaire pour les données de type FormData
+            contentType: false, // Nécessaire pour les données de type FormData
+            success: function(response) {
+                alert('Inscription réussie !');
+                console.log(response);
+            },
+            error: function(xhr, status, error) {
+                alert('Une erreur s\'est produite lors de l\'inscription.');
+                console.log(error);
+            }
+        });
+    });
+});
+
+    </script> -->
 
     <!-- <div class="box_form_inscription_infographiste">
         <h2>Inscription infographiste</h2>

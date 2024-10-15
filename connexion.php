@@ -39,7 +39,7 @@
 
         <div class="box_btn_creer_compte">
                  <p>
-                    Vous n’avez pas de compte ? <br> créez un compte <a href="inscription_anonceur.php">anonceur</a> ou <a href="inscription_infographiste.php">infographiste</a> 
+                    Vous n’avez pas de compte ? <br> créez un compte <a href="annoceur/inscription_anonceur.php">anonceur</a> ou <a href="infographe/inscription_infographiste.php">infographiste</a> 
                </p>
                  <button type="submit">Se connecter</button>
         </div>

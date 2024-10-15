@@ -19,19 +19,26 @@
                         <nav>
                             <!-- retour a l'accueil -->
                             <ul>
-                                <li class="back_users_home_page"><a href="index.php">Accueil</a></li>
+                                <li class="back_users_home_page"><a href="../index.php">Accueil</a></li>
                             </ul>
                             <!-- lien metier -->
                             <ul>
-                                <li class="job_item trigger-modal"><a href="photographe.php">Photographe</a></li>
+                                  <?php
+                            foreach ($categories as $afficher) {
+                                # code...
+                            
+                                ?>
+                                <li class="job_item trigger-modal"><a href="?cat=<?= $afficher['nom_domaine'] ?>"><?= $afficher['nom_domaine'] ?></a></li>
+                            <?php } ?>
+                                <li class="job_item trigger-modal"><a href="?cat=FRGA">Photographe</a></li>
                                 <li class="job_item trigger-modal"><a href="pao.php">infographiste PAO</a></li>
                                 <li class="job_item trigger-modal"><a href="integrateur.php"> Intégrateur web </a></li>
                                 <li class="job_item trigger-modal"><a href="monteur.php"> Monteur vidéo </a></li>
                             </ul>
                             <!-- Lien pour etre -->
                             <ul>
-                                <li class="to_be"><a href="inscription_infographiste.php">Devenir infographiste </a></li>
-                                <li class="to_be"><a href="inscription_anonceur.php">Publier une annonce </a></li>
+                                <li class="to_be"><a href="../infographe/inscription_infographiste.php">Devenir infographiste </a></li>
+                                <li class="to_be"><a href="../annoceur/inscription_anonceur.php">Publier une annonce </a></li>
                             </ul>
                         </nav>
 
