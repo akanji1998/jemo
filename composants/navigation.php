@@ -28,28 +28,50 @@
                                 # code...
                             
                                 ?>
-                                <li class="job_item trigger-modal"><a href="site/recherche.php?cat=<?= $afficher['nom_domaine'] ?>"><?= $afficher['nom_domaine'] ?></a></li>
+                                <li class="job_item trigger-modal"><a
+                                        href="site/recherche.php?cat=<?= $afficher['nom_domaine'] ?>"><?= $afficher['nom_domaine'] ?></a>
+                                </li>
                             <?php } ?>
-                            <li class="job_item trigger-modal"><a href="site/recherche.php?cat=jdsqdfs">infographiste PAO</a></li>
+                            <li class="job_item trigger-modal"><a href="site/recherche.php?cat=jdsqdfs">infographiste
+                                    PAO</a></li>
                             <li class="job_item trigger-modal"><a href="integrateur.php"> Intégrateur web </a></li>
                             <li class="job_item trigger-modal"><a href="monteur.php"> Monteur vidéo </a></li>
                         </ul>
                         <!-- Lien pour etre -->
                         <ul>
-                            <li class="to_be"><a href="infographe/inscription_infographiste.php">Devenir infographiste </a></li>
-                            <li class="to_be"><a href="annoceur/inscription_anonceur.php">Publier une annonce </a></li>
+                            <li class="to_be"><a href="infographe/inscription_infographiste.php">Devenir infographiste
+                                </a></li>
+                            <li class="to_be"><a href="annonceur/inscription_anonceur.php">Publier une annonce </a></li>
                         </ul>
                     </nav>
 
                     <div class="user-menu-container">
-                        <div class="user-icon" id="userIcon">
-                            <div class="circle-user"></div>
-                        </div>
-                        <div class="menu" id="menu">
+                        <?php
+
+                        if(isset($_SESSION['user_type'])){
+
+                        
+                        
+                        ?>
+                        <a href="<?php echo $_SESSION['user_type'] == "annoceur"? "annonceur/dashboard.php" : "infographe/dashboard.php" ; ?>">
+                            <div class="user-icon" id="userIcon">
+                                <div class="circle-user"></div>
+                            </div>
+                        </a>
+                        <?php } else {
+                            
+                         ?>
+                         <a href="connexion.php">
+                            <div class="user-icon" id="userIcon">
+                                <div class="circle-user"></div>
+                            </div>
+                        </a>
+                        <?php } ?>
+                        <!-- <div class="menu" id="menu">
                             <ul>
                                 <li><a href="connexion.php">Se connecter</a></li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </header>

@@ -2,36 +2,36 @@
 
 
 include '../database/connexion.php';
-include '../database/fetch_domaine.php';
 
 ?>
 
 <!-- Head et doctype -->
 <?php include '../composants/header.php'; ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../css/globals.css" />
-    <link rel="stylesheet" href="../css/styleguide.css" />
-    <link rel="stylesheet" href="../css/style.css" />
-    <style>
-        .form-step {
-            display: none;
-        }
-
-        .form-step-active {
-            display: block;
-        }
-
-        .is-invalid {
-            border-color: red;
-        }
-    </style>
+    <link rel="stylesheet" href="css/globals.css" />
+    <link rel="stylesheet" href="css/styleguide.css" />
+    <link rel="stylesheet" href="css/style.css" />
 </head>
-
 <body>
+
+<!-- HTML Structure for Modal -->
+<div id="customModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <div class="modal-body">
+        <img src="path/to/icon.png" alt="Icon" class="modal-icon" />
+        <h2>Désolé</h2>
+        <p>La fonctionnalité est en plein déploiement et sera disponible bientôt</p>
+      </div>
+    </div>
+  </div>
+
+
     <header class="section header">
         <div class="box_header1">
             <div class="logo1"></div><br>
@@ -50,31 +50,22 @@ include '../database/fetch_domaine.php';
         <form id="signupForm">
             <!-- Étape 1 -->
             <div class="form-step form-step-active">
-                <h2 class="title_inter">Inscription infographiste</h2>
+                <h2 class="title_inter">Inscription annonceur</h2>
                 <div class="box_radio_btn_step">
                     <div class="radio_btn_step step-active"></div>
                     <div class="radio_btn_step"></div>
                     <div class="radio_btn_step"></div>
                 </div>
-
+                
                 <!-- <label for="nom">Nom</label> -->
                 <input type="text" id="nom" name="nom" required placeholder="nom">
 
                 <!-- <label for="prenom">Prénom</label> -->
                 <input type="text" id="prenom" name="prenom" required placeholder="prenom">
-
-                <label for="specialite">Choisir votre spécialité</label>
-                <select id="specialite" name="specialite">
-                    <option value="aucun" selected>aucun</option>
-                    <?php
-                        foreach ($categories as $afficher ) {
-                            # code...
-                        
-                    ?>
-                    <option value="<?= $afficher['nom_domaine'] ?>"><?= $afficher['nom_domaine'] ?></option>
-                    <?php }?>
-                  
-                </select>
+                
+                <!-- <label for="specialite">Choisir votre spécialité</label> -->
+                <input type="text" id="entreprise" name="entreprise" required placeholder="Nom entreprise ou  secteur d’activite">
+                
 
                 <!-- <label for="telephone"></label> -->
                 <input type="tel" id="telephone" name="telephone" required placeholder="Numéro de téléphone">
@@ -90,64 +81,47 @@ include '../database/fetch_domaine.php';
 
             <!-- Étape 2 -->
             <div class="form-step">
-                <h2 class="title_inter">Inscription infographiste</h2>
+                <h2 class="title_inter">Inscription annonceur</h2>
                 <div class="box_radio_btn_step">
                     <div class="radio_btn_step "></div>
                     <div class="radio_btn_step step-active"></div>
                     <div class="radio_btn_step"></div>
                 </div>
-
+                
                 <!-- <label for="username"></label> -->
                 <input type="text" id="username" name="username" required placeholder="Username">
 
                 <!-- <label for="photo">Uploader une photo de profil</label> -->
-                <!-- <div class="box_drapAnddrop">
-<input type="file" id="photo" name="photo" accept="image/*" placeholder="Uploader une photo de profil">
-</div> -->
+                 <!-- <div class="box_drapAnddrop">
+                     <input type="file" id="photo" name="photo" accept="image/*" placeholder="Uploader une photo de profil">
+                 </div> -->
 
-                <div class="box_drapAnddrop">
+                 <div class="box_drapAnddrop">
                     <div class="drag-drop-area" id="dragDropArea">
                         <p>Glissez et déposez une photo ici ou <span>Cliquez pour ajouter</span></p>
                         <input type="file" id="photo" name="photo" accept="image/*" style="display: none;">
                     </div>
                 </div>
-
-
-                <h4>Vous êtes intéressé par (vous pouvez sélectionner 3 choix maximum)</h4>
-                <div class="checkbox-container">
-                    <input type="checkbox" id="cdi" name="interest" value="CDI" onclick="limitSelection()">
-                    <label class="checkbox-label" for="cdi">CDI</label>
-
-                    <input type="checkbox" id="cdd" name="interest" value="CDD" onclick="limitSelection()">
-                    <label class="checkbox-label" for="cdd">CDD</label>
-
-                    <input type="checkbox" id="stage" name="interest" value="Stage" onclick="limitSelection()">
-                    <label class="checkbox-label" for="stage">STAGE</label>
-
-                    <input type="checkbox" id="freelance" name="interest" value="Freelance" onclick="limitSelection()">
-                    <label class="checkbox-label" for="freelance">FREELANCE</label>
-                </div>
-
+                
                 <div class="box_btn">
-                    <button type="button" class="btn-prev">Retour</button>
-                    <button type="button" class="btn-next">Suivant</button>
-                </div>
+                <button type="button" class="btn-prev">Retour</button>
+                <button type="button" class="btn-next">Suivant</button>
+            </div>
             </div>
 
             <!-- Étape 3 -->
             <div class="form-step">
-                <h2 class="title_inter">Inscription infographiste</h2>
+                <h2 class="title_inter">Inscription annonceur</h2>
                 <div class="box_radio_btn_step">
                     <div class="radio_btn_step"></div>
                     <div class="radio_btn_step"></div>
                     <div class="radio_btn_step step-active"></div>
-                </div>
+                </div>                
                 <!-- <label for="password">Mot de passe</label> -->
                 <input type="password" id="password" name="password" required placeholder="Mot de passe">
 
                 <!-- <label for="confirm_password">Confirmation mot de passe</label> -->
-                <input type="password" id="confirm_password" name="confirm_password" required
-                    placeholder="Confirmation mot de passe">
+                <input type="password" id="confirm_password" name="confirm_password" required placeholder="Confirmation mot de passe">
 
                 <div class="box_btn">
                     <button type="button" class="btn-prev">Retour</button>
@@ -155,67 +129,10 @@ include '../database/fetch_domaine.php';
                 </div>
             </div>
         </form>
-        <?php /*
-<form id="signupForm" enctype="multipart/form-data">
-<!-- Étape 1 -->
-<div class="form-step form-step-active">
- <h2 class="title_inter">Inscription infographiste</h2>
- <!-- Les champs de l'étape 1 -->
- <input type="text" id="nom" name="nom" required placeholder="Nom" class="is-invalid">
- <input type="text" id="prenom" name="prenom" required placeholder="Prénom">
- <label for="specialite">choisir une spécilité</label>
- <select id="specialite" name="specialite" required placeholder="">
-
-     <option value="Photographe">Photographe</option>
-     <option value="Infographiste PAO">Infographiste PAO</option>
-     <option value="Intégrateur web">Intégrateur web</option>
-     <option value="Monteur vidéo">Monteur vidéo</option>
- </select>
- <input type="tel" id="telephone" name="telephone" required placeholder="Numéro de téléphone">
- <input type="email" id="email" name="email" required placeholder="Email">
- <input type="date" id="date_naissance" name="date_naissance" required placeholder="Date de naissance">
- <button type="button" class="btn-next">Suivant</button>
-</div>
-
-<!-- Étape 2 -->
-<div class="form-step">
- <h2 class="title_inter">Inscription infographiste</h2>
- <!-- Les champs de l'étape 2 -->
- <input type="text" id="username" name="username" required placeholder="Username">
- <div class="drag-drop-area" id="dragDropArea">
-     <p>Glissez et déposez une photo ici ou <span>Cliquez pour ajouter</span></p>
-     <input type="file" id="photo" name="photo" accept="image/*" style="display: none;">
- </div>
- <h4>Vous êtes intéressé par (3 choix maximum)</h4>
- <div class="checkbox-container">
-     <input type="checkbox" id="cdi" name="interest[]" value="CDI">
-     <label for="cdi">CDI</label>
-     <input type="checkbox" id="cdd" name="interest[]" value="CDD">
-     <label for="cdd">CDD</label>
-     <input type="checkbox" id="stage" name="interest[]" value="Stage">
-     <label for="stage">STAGE</label>
-     <input type="checkbox" id="freelance" name="interest[]" value="Freelance">
-     <label for="freelance">FREELANCE</label>
- </div>
- <button type="button" class="btn-prev">Retour</button>
- <button type="button" class="btn-next">Suivant</button>
-</div>
-
-<!-- Étape 3 -->
-<div class="form-step">
- <h2 class="title_inter">Inscription infographiste</h2>
- <!-- Les champs de l'étape 3 -->
- <input type="password" id="password" name="password" required placeholder="Mot de passe">
- <input type="password" id="confirm_password" name="confirm_password" required
-     placeholder="Confirmation mot de passe">
- <button type="button" class="btn-prev">Retour</button>
- <button type="submit">S'inscrire</button>
-</div>
-</form>*/ ?>
     </div>
 
-
-    <script src="../js/jquery-3.6.0.min.js"></script>
+    <!-- <script src="../js/script.js"></script> -->
+     <script src="../js/jquery-3.6.0.min.js"></script>
     <!-- <script src="../js/script.js"></script> -->
     <script>
         $(document).ready(function () {
@@ -243,24 +160,24 @@ include '../database/fetch_domaine.php';
                     });
 
                 });
-                if (stepIndex === 1) {
-                    // Sélectionner toutes les cases à cocher dans le groupe
-                    var checkboxes = document.querySelectorAll('.checkbox-container input[type="checkbox"]');
+                // if (stepIndex === 1) {
+                //     // Sélectionner toutes les cases à cocher dans le groupe
+                //     var checkboxes = document.querySelectorAll('.checkbox-container input[type="checkbox"]');
 
-                    // Vérifier si au moins une case à cocher est cochée
-                    var isChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+                //     // Vérifier si au moins une case à cocher est cochée
+                //     var isChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
 
-                    if (!isChecked) {
-                        // Empêcher la soumission du formulaire
-                        event.preventDefault();
-                        isValid = false;
-                        // Afficher un message d'erreur
-                        // document.getElementById('error-message').style.display = 'block';
-                    } else {
-                        // Cacher le message d'erreur si au moins une case est cochée
-                        // document.getElementById('error-message').style.display = 'none';
-                    }
-                }
+                //     if (!isChecked) {
+                //         // Empêcher la soumission du formulaire
+                //         event.preventDefault();
+                //         isValid = false;
+                //         // Afficher un message d'erreur
+                //         // document.getElementById('error-message').style.display = 'block';
+                //     } else {
+                //         // Cacher le message d'erreur si au moins une case est cochée
+                //         // document.getElementById('error-message').style.display = 'none';
+                //     }
+                // }
                 return isValid;
             }
 
@@ -297,16 +214,16 @@ include '../database/fetch_domaine.php';
                     console.log(pair[0] + ': ' + pair[1]);
                 }
                 $.ajax({
-                    url: 'http://jemo.test/api/register_infographe.php', // L'URL du fichier PHP de traitement
+                    url: 'http://jemo.test/api/register_annonceur.php', // L'URL du fichier PHP de traitement
                     type: 'POST',
                     data: formData,
                     contentType: false, // Important pour le transfert de fichiers
                     processData: false, // Empêche la transformation des données en chaîne de requête
                     success: function (response) {
                         // Traiter la réponse
-                        alert("Inscription réussie !");
                         console.log(response);
-                          $('#signupForm')[0].reset();
+                        $('#signupForm')[0].reset();
+                        alert("Inscription réussie !");
                         window.location.href = '../connexion.php'
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
@@ -402,15 +319,5 @@ include '../database/fetch_domaine.php';
         });
 
     </script>
-
-    <!-- <div class="box_form_inscription_infographiste">
-   <h2>Inscription infographiste</h2>
-   <div class="box_radio_btn_step">
-       <div class="radio_btn_step"></div>
-       <div class="radio_btn_step"></div>
-       <div class="radio_btn_step"></div>
-   </div>
-</div> -->
 </body>
-
 </html>

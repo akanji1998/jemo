@@ -1,6 +1,4 @@
 <?php
-
-
 include 'database/connexion.php';
 include 'database/site_global_request.php';
 
@@ -58,8 +56,8 @@ include 'composants/navigation.php';
                     <div class="cards_categories_works">
                         <h3 class="title"><?= $afficher['nom_domaine'] ?></h3>
                         <div>
-                            <img src="media/public/front-view-summer-concept-with-copy-space.png" alt="img_works"
-                                height="370">
+                            <img src="http://jemo.test/admin/api/uploads/<?= $afficher['image_domaine'] ?>" alt="img_works"
+                                height="370" width="300">
                         </div>
                     </div>
                 </a>

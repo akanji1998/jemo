@@ -1,5 +1,6 @@
 <?php
 
+
 $categories = array();
 $topInfographes = array();
 

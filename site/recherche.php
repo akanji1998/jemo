@@ -121,6 +121,8 @@ include '../composants/navigation_resultatRecherche.php';
                 url: apiUrl, // URL de l'API
                 method: 'GET', // Méthode GET
                 success: function (data) {
+
+                    
                     // Traiter les données en cas de succès
                     if (!data || !data.data || !data.data.infographe || data.data.infographe.length === 0) {
                         $('#results').html("Une erreur s'est produite lors de la récupération des données.");

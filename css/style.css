@@ -1487,6 +1487,12 @@ input[type="radio"] {
     align-items: center; /* Centre verticalement les éléments */
     margin-top: 20px;
   }
+ .form-step .checkbox-container {
+    display: flex;
+    justify-content: center; /* Centre horizontalement les éléments */
+    align-items: center; /* Centre verticalement les éléments */
+    margin-top: 20px;
+  }
 
   /* Style des labels */
   .checkbox-label {
