@@ -21,9 +21,9 @@ a.second_style{
     padding: 10px;
     color: #094523;
 }
-a:visited{
+/* a:visited{
     color: white;
-}
+} */
 
 footer a:hover{
     text-decoration: underline;

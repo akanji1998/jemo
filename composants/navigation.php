@@ -40,7 +40,7 @@
                         <!-- Lien pour etre -->
                         <ul>
                             <li class="to_be"><a href="infographe/inscription_infographiste.php" class="primary_style">Devenir infographiste</a></li>
-                            <li class="to_be"><a class="primary_style" href="<?php //echo $_SESSION['user_type'] == "annoceur" ? "annonceur/dashboard.php" : "connexion.php"; ?>">Publier une annonce </a></li>
+                            <li class="to_be"><a class="primary_style" href="<?php echo"annonceur/dashboard.php"; ?>">Publier une annonce </a></li>
                         </ul>
                     </nav>
 
@@ -49,7 +49,6 @@
 
                         if(isset($_SESSION['user_type'])){
 
-                        
                         
                         ?>
                         <a href="<?php echo $_SESSION['user_type'] == "annoceur"? "annonceur/dashboard.php" : "infographe/dashboard.php" ; ?>">

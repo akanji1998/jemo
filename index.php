@@ -5,7 +5,7 @@ include 'database/site_global_request.php';
 ?>
 
 <!-- Head et doctype -->
-<?php include 'composants/header.php'; ?>
+<?php include 'header.php'; ?>
 <!-- navigation + connexion a la bdd-->
 <?php
 include 'composants/navigation.php';

@@ -6,10 +6,10 @@ include '../database/connexion.php';
 ?>
 
 <!-- Head et doctype -->
-<?php include '../composants/header.php'; ?>
+<?php include '../header_2.php'; ?>
 
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -17,7 +17,7 @@ include '../database/connexion.php';
     <link rel="stylesheet" href="css/styleguide.css" />
     <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
+<body> -->
 
 <!-- HTML Structure for Modal -->
 <div id="customModal" class="modal" style="display: none;">

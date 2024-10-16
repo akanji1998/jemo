@@ -7,8 +7,8 @@ include '../database/fetch_domaine.php';
 ?>
 
 <!-- Head et doctype -->
-<?php include '../composants/header.php'; ?>
-<!DOCTYPE html>
+<?php include '../header_2.php'; ?>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -16,20 +16,7 @@ include '../database/fetch_domaine.php';
     <link rel="stylesheet" href="../css/globals.css" />
     <link rel="stylesheet" href="../css/styleguide.css" />
     <link rel="stylesheet" href="../css/style.css" />
-    <style>
-        .form-step {
-            display: none;
-        }
-
-        .form-step-active {
-            display: block;
-        }
-
-        .is-invalid {
-            border-color: red;
-        }
-    </style>
-</head>
+</head> -->
 
 <body>
     <header class="section header">

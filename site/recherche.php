@@ -6,7 +6,9 @@ include '../database/search_request.php';
 ?>
 
 <!-- Head et doctype -->
-<?php include '../composants/header.php'; ?>
+<?php include '../header_2.php'; ?>
+
+
 <!-- navigation + connexion a la bdd-->
 <?php
 include '../composants/navigation_resultatRecherche.php';
@@ -36,23 +38,21 @@ include '../composants/navigation_resultatRecherche.php';
             <div class="sur-6000-trouvs"><?= count($searchResult) ?> trouvés</div>
         </div>
         <div class="box_countResult__x__cardInfographiste" id="results">
-
+            <img src="../media/icon/face-grin-beam-sweat.png" alt="">
             <!-- Card infographistes -->
             <?php
 
             if (!empty($searchResult)) {
-
-
 
                 foreach ($searchResult as $afficher) {
                     # code...
             
                     ?>
                     <div class="cardInfographiste">
-                        <a href="profil_consultation.php">
+                        <a href="../profil_consultation.php" class="second_style">
                             <div class="rectangle-div_radius">
                                 <div class="profil_picture"><img class="profil-picture-icon" alt=""
-                                        src="media/public/images/photos membres/phto say.png"></div>
+                                        src="../media/public/images/photos_membres/phto say.png"></div>
                                 <div class="description_illustration">
                                     <div class="name_infographiste">Moussa <span>Samuel</span></div>
                                     <i class="job">développeur web</i>
@@ -79,12 +79,13 @@ include '../composants/navigation_resultatRecherche.php';
                         <!-- Left Side: Search Results -->
                         <div class="col-md-12">
 
-                            <p> Aucun resultat trouver pour cette recherche</p>
+                        <p style="text-align: center;">Aucun résultat trouvé pour cette recherche</p>
+
                         </div>
                     </div>
                 </div>
             <?php } ?>
-             <div class="cardInfographiste">
+             <!-- <div class="cardInfographiste">
                         <a href="profil_consultation.php">
                             <div class="rectangle-div_radius">
                                 <div class="profil_picture"><img class="profil-picture-icon" alt=""
@@ -107,12 +108,12 @@ include '../composants/navigation_resultatRecherche.php';
                                 </div>
                             </div>
                         </a>
-                    </div>
+                    </div> -->
         </div>
 
         <!-- pagination -->
 
-        <ul class="pagination_profil_infogr">
+        <!-- <ul class="pagination_profil_infogr">
             <li><a href="#" class="prev">&laquo;</a></li>
             <li><a href="#">1</a></li>
             <li class="active"><a href="#">2</a></li>
@@ -120,7 +121,7 @@ include '../composants/navigation_resultatRecherche.php';
             <li><a href="#">4</a></li>
             <li><a href="#">5</a></li>
             <li><a href="#" class="next">&raquo;</a></li>
-        </ul>
+        </ul> -->
 
 
 
@@ -136,10 +137,9 @@ include '../composants/navigation_resultatRecherche.php';
     <script>
         // Fonction pour faire une requête AJAX avec jQuery
         function searchAPI(query) {
-            console.log(query);
+            // console.log(query);
             // URL de l'API (à remplacer par l'API réelle)
-            const apiUrl = `http://jemo.test/api/search_profil.php?q=${query}`;
-
+            const apiUrl = `../api/search_profil.php?q=${query}`;
             // Requête AJAX avec jQuery
             $.ajax({
                 url: apiUrl, // URL de l'API
@@ -149,7 +149,18 @@ include '../composants/navigation_resultatRecherche.php';
                     
                     // Traiter les données en cas de succès
                     if (!data || !data.data || !data.data.infographe || data.data.infographe.length === 0) {
-                        $('#results').html("Une erreur s'est produite lors de la récupération des données.");
+                        $('#results').html(`
+                        <div class="SMS_error"
+                            style="display: flex;
+                            flex-direction: column;
+                            align-items: center; /* Centrer verticalement */
+                            justify-content: center; /* Centrer horizontalement */
+                            padding: 20px;"
+                            gap: 10px; /* Espace entre l'image et le texte */
+                        >
+                            <img src="../media/icon/face-grin-beam-sweat.png" alt="Erreur" />
+                            <p>Aucun résultat trouvé pour cette recherche</p>
+                        </div>`);
                     } else {
                         displayResults(data);
                     }
@@ -158,7 +169,19 @@ include '../composants/navigation_resultatRecherche.php';
                 error: function (xhr, status, error) {
                     // Gérer les erreurs
                     console.error("Erreur:", error);
-                    $('#results').html("Une erreur s'est produite lors de la récupération des données.");
+                    $('#results').html(`
+                        <div class="SMS_error"
+                            style="display: flex;
+                            flex-direction: column;
+                            align-items: center; /* Centrer verticalement */
+                            justify-content: center; /* Centrer horizontalement */
+                            padding: 20px;"
+                             gap: 10px; /* Espace entre l'image et le texte */
+                        >
+                            <img src="../media/icon/face-grin-beam-sweat.png" alt="Erreur" />
+                            <p>Aucun résultat trouvé pour cette recherche</p>
+                        </div>
+                    `);
                 }
             });
         }
@@ -172,10 +195,10 @@ include '../composants/navigation_resultatRecherche.php';
                 data.forEach(item => {
                     const itemDiv = $(`
                 <div class="cardInfographiste">
-                    <a href="profil_consultation.php">
+                    <a href="profil_consultation.php" class="">
                         <div class="rectangle-div_radius">
                             <div class="profil_picture">
-                                <img class="profil-picture-icon" alt="" src="media/public/images/photos membres/phto say.png">
+                                <img class="profil-picture-icon" alt="" src="../media/public/images/photos_membres/phto say.png">
                             </div>
                             <div class="description_illustration">
                                 <div class="name_infographiste">${item.firstName} <span>${item.lastName}</span></div>

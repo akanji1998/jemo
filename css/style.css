@@ -627,11 +627,12 @@ main .cardInfographiste i.job
 
 main .rectangle-div_radius{
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
     border: 2px solid #094523;
     padding: 2rem;
     border-radius: 2rem;
     cursor: pointer;
+    gap: 10px;
 }
 main .rectangle-div_radius:hover{
     box-shadow: 1px 10px 20px rgba(0, 0, 0, 0.1); 
