@@ -120,7 +120,7 @@
 
                     <h4 class="portfolio">Portfolio</h4>
                     <div class="box_illustation_created">
-                        <div class="card_illustration_created illustration_01">
+                        <!-- <div class="card_illustration_created illustration_01">
                             <p class="illustration_description">
                                 Spot animatique et motion <br> logo 2d / 3d
                             </p>
@@ -139,6 +139,10 @@
                             <p class="illustration_description">
                                 Charte graphique
                             </p>
+                        </div> -->
+
+                        <div class="realisation-card">
+                            <p>Ce professionnel n'a pas encore ajouté de réalisation</p>
                         </div>
                     </div>
 
