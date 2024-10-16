@@ -107,53 +107,35 @@ include 'database/fetch_infographiste.php';
                                 </thead>
                                 <tbody>
                                     <!-- First Infographiste -->
-                                     <?php
-                                        foreach ($listDesInfographiste as $afficher) {
-                                            # code...
-                                        
-                                     ?>
-                                    <tr class="border-bottom">
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <img src="../media/public/images/photos_membres/phto say2.png" alt="say"
-                                                    class="rounded-circle" width="40" height="40" class="me-3">
-                                                <div class="ms-2">
-                                                    <strong><?= $afficher['nom_infographe'] ?></strong><br>
-                                                    <span class="text-muted"><?= $afficher['specialite_infographe'] ?></span>
+                                    <?php
+                                    foreach ($listDesInfographiste as $afficher) {
+                                        # code...
+                                    
+                                        ?>
+                                        <tr class="border-bottom" data-id="<?= $afficher['id_infographe'] ?>">
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="../media/public/images/photos_membres/phto say2.png" alt="say"
+                                                        class="rounded-circle" width="40" height="40" class="me-3">
+                                                    <div class="ms-2">
+                                                        <strong><?= $afficher['nom_infographe'] ?></strong><br>
+                                                        <span
+                                                            class="text-muted"><?= $afficher['specialite_infographe'] ?></span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </td>
-                                        <td><?= $afficher['date_inscription_infographe'] ?></td>
-                                        <td><?= $afficher['telephone_infographe'] ?></td>
-                                        <td>
-                                            <a href="#" class="me-2"><i class="fas fa-eye"></i></a>
-                                            <a href="#" class="me-2"><i class="fas fa-edit"></i></a>
-                                            <a href="#"><i class="fas fa-trash"></i></a>
-                                        </td>
-                                    </tr>
-                                    <?php }?>
+                                            </td>
+                                            <td><?= $afficher['date_inscription_infographe'] ?></td>
+                                            <td><?= $afficher['telephone_infographe'] ?></td>
+                                            <td>
+                                                <a href="#" class="me-2"><i class="fas fa-eye"></i></a>
+                                                <a href="#" class="me-2"><i class="fas fa-edit"></i></a>
+                                                <!-- <a href="#"><i class="fas fa-trash"></i></a> -->
+                                                <a href="#" class="text-danger delete-btn"><i class="fas fa-trash"></i></a>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
 
-                                    <!-- Second Infographiste -->
-                                    <tr class="border-bottom">
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <img src="../media/public/images/photos_membres/phto gneba.png"
-                                                    alt="djeni" class="rounded-circle" width="40" height="40"
-                                                    class="me-3">
-                                                <div class="ms-2">
-                                                    <strong>Isac Mathieu</strong><br>
-                                                    <span class="text-muted">Infographiste</span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>12/07/2023</td>
-                                        <td>+33 7 12 34 56 89</td>
-                                        <td>
-                                            <a href="#" class="me-2"><i class="fas fa-eye"></i></a>
-                                            <a href="#" class="me-2"><i class="fas fa-edit"></i></a>
-                                            <a href="#"><i class="fas fa-trash"></i></a>
-                                        </td>
-                                    </tr>
+
                                 </tbody>
                             </table>
                         </div>
@@ -185,6 +167,53 @@ include 'database/fetch_infographiste.php';
     <!-- Bootstrap JS & Font Awesome -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+
+
+            console.log("page loaded");
+
+
+            $(document).on('click', '.delete-btn', function (e) {
+                e.preventDefault();
+
+                console.log("deleting");
+
+                // Récupérer l'ID du domaine à partir de l'attribut data-id du parent <tr>
+                let row = $(this).closest('tr');
+                let domainId = row.data('id');
+                console.log(domainId);
+                // Confirmation de suppression
+                if (confirm('Voulez-vous vraiment supprimer ce domaine ?')) {
+                    // Envoi de la requête AJAX
+                    $.ajax({
+                        url: 'http://jemo.test/admin/api/delete_infograph.php', // Le fichier PHP qui gère la suppression
+                        type: 'POST',
+                        data: { 'id': domainId },
+                        success: function (response) {
+                            console.log(response);
+                            let result = JSON.parse(response);  // Tente de parser la réponse JSON
+
+                            if (result.success) {
+                                // Si la suppression est un succès, retirer la ligne du tableau
+                                row.remove();
+                            } else {
+                                alert('Erreur : ' + response.error);
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            console.log(error);
+                            console.error('Erreur lors de la suppression du domaine :', error);
+                        }
+                    });
+                }
+            });
+
+        });
+
+    </script>
 </body>
 
 </html>

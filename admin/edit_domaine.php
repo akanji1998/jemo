@@ -1,6 +1,7 @@
 <?php
 include 'database/connexion.php';
 include 'database/fetch_domaine.php';
+include 'database/fetch_domaine_by_id.php';
 ?>
 
 <!DOCTYPE html>
@@ -93,7 +94,7 @@ include 'database/fetch_domaine.php';
                     <!-- Categories form and table -->
                     <div class="row">
                         <!-- Add new category -->
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <div class="card mb-4">
                                 <div class="card-header">
                                     <h5>ajouter domaine</h5>
@@ -102,11 +103,15 @@ include 'database/fetch_domaine.php';
                                     <form id="addDomainForm">
                                         <div class="mb-3">
                                             <label for="domainName" class="form-label">Nom de domaine</label>
-                                            <input type="text" class="form-control" id="domainName"
+                                            <input type="text" class="form-control" id="domainName" value="<?= $domaine['nom_domaine'] ?>"
                                                 placeholder="Nom de domaine" required>
+                                            <input type="hidden"  class="form-control" id="domainPhoto"  value="<?= $domaine['image_domaine'] ?>"
+                                                >
+                                            <input type="hidden"  class="form-control" id="domainId"  value="<?= $domaine['id_domaine'] ?>"
+                                                >
 
                                             <label for="domainImage" class="form-label">ajouter une image</label>
-                                            <input type="file" class="form-control" id="domainImage" required>
+                                            <input type="file" class="form-control" id="domainImage">
                                         </div>
                                         <button type="submit" class="btn btn-primary w-100">Enregistrer</button>
                                     </form>
@@ -114,57 +119,7 @@ include 'database/fetch_domaine.php';
                             </div>
                         </div>
 
-                        <!-- List of categories -->
-                        <div class="col-md-8">
-                            <div class="card mb-4">
-                                <div class="card-header">
-                                    <h5>Liste des domaines</h5>
-                                </div>
-                                <div class="card-body">
-                                    <table class="table table-borderless" id="domainsTable">
-                                        <thead>
-
-                                            <tr>
-                                                <th>Nom de la catégorie</th>
-                                                <th>Supprimer</th>
-                                                <th>Modifier</th>
-                                            </tr>
-
-                                        </thead>
-                                        <tbody>
-                                            <?php foreach ($categories as $afficher) { ?>
-                                                <tr class="border-bottom" data-id="<?= $afficher['id_domaine'] ?>">
-                                                    <td><?= $afficher['nom_domaine'] ?></td>
-                                                    <td><a href="#" class="text-danger delete-btn"><i
-                                                                class="fas fa-trash"></i></a></td>
-                                                    <td><a href="edit_domaine.php?edit=<?= $afficher['id_domaine'] ?>" class="text-primary"><i
-                                                                class="fas fa-edit"></i></a>
-                                                    </td>
-                                                </tr>
-                                            <?php } ?>
-                                        </tbody>
-
-
-
-                                    </table>
-                                </div>
-                                <div class="card-footer d-flex justify-content-between">
-                                    <!-- Pagination -->
-                                    <nav aria-label="Page navigation">
-                                        <ul class="pagination mb-0">
-                                            <li class="page-item disabled">
-                                                <a class="page-link" href="#" tabindex="-1"
-                                                    aria-disabled="true">&laquo;</a>
-                                            </li>
-                                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">&raquo;</a>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>
+                       
                     </div>
                 </main>
 
@@ -194,41 +149,36 @@ include 'database/fetch_domaine.php';
 
                 // Récupérer les données du formulaire
                 let domainName = $('#domainName').val();
+                let domainPhoto = $('#domainPhoto').val();
                 let domainImage = $('#domainImage')[0].files[0];
+                let domainId = $('#domainId').val();
 
 
 
                 // Vérifier que les champs ne sont pas vides
-                if (domainName && domainImage) {
+                if (domainName && domainPhoto && domainId) {
                     // Créer un objet FormData pour envoyer le fichier et les données
                     let formData = new FormData();
                     formData.append('domainName', domainName);
                     formData.append('domainImage', domainImage);
+                    formData.append('domainPhoto', domainPhoto);
+                    formData.append('domainId', domainId);
 
                     // Faire une requête AJAX
                     $.ajax({
-                        url: 'http://jemo.test/admin/api/register_domain.php', // Remplace cette URL par celle de ton API
+                        url: 'http://jemo.test/admin/api/update_domaine.php', // Remplace cette URL par celle de ton API
                         type: 'POST',
                         data: formData,
                         contentType: false,
                         processData: false,
                         success: function (response) {
-
-                            let result = JSON.parse(response);  // Tente de parser la réponse JSON
-                            let newDomain = result.newDomain;
-                            console.log(newDomain.name);
-                            // Ajouter la nouvelle ligne à la table
-                            let newRow = `
-                        <tr class="border-bottom">
-                            <td>${newDomain.name}</td>
-                            <td><a href="#" class="text-danger"><i class="fas fa-trash"></i></a></td>
-                            <td><a href="#" class="text-primary"><i class="fas fa-edit"></i></a></td>
-                        </tr>
-                    `;
-                            $('#domainsTable tbody').append(newRow);
-
-                            // Réinitialiser le formulaire
-                            $('#addDomainForm')[0].reset();
+                            console.log(response);
+                            let result = JSON.parse(response); 
+                             // Tente de parser la réponse JSON
+                             if(result.success){
+                                window.location.href = "domaine_infographe.php";
+                             }
+                 
                         },
                         error: function (xhr, status, error) {
                             console.error("Une erreur s'est produite :", error);

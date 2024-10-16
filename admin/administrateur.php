@@ -126,12 +126,12 @@ include 'database/fetch_administrateur.php';
                                         <td><?= $afficher['email_administrateur'] ?></td>
                                         <td>+33 6 12 34 56 78</td>
                                         <td>
-                                            <a href="#" class="me-2"><i class="fas fa-eye"></i></a>
-                                            <a href="#" class="me-2"><i class="fas fa-edit"></i></a>
+                                            <!-- <a href="#" class="me-2"><i class="fas fa-eye"></i></a> -->
+                                            <a href="profile.php?edit=<?= $afficher['id_administrateur'] ?>" class="me-2"><i class="fas fa-edit"></i></a>
                                         </td>
                                     </tr>
                                     <?php } ?>
-                                    <tr class="border-bottom">
+                                    <!-- <tr class="border-bottom">
                                         <td>
                                             <div class="d-flex align-items-center">
                                                 <img src="../media/public/images/photos_membres/ppp.png"
@@ -149,7 +149,7 @@ include 'database/fetch_administrateur.php';
                                             <a href="#" class="me-2"><i class="fas fa-eye"></i></a>
                                             <a href="#" class="me-2"><i class="fas fa-edit"></i></a>
                                         </td>
-                                    </tr>
+                                    </tr> -->
 
 
                                 </tbody>

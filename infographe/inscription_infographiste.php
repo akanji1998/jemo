@@ -77,7 +77,7 @@ include '../database/fetch_domaine.php';
                 </select>
 
                 <!-- <label for="telephone"></label> -->
-                <input type="tel" id="telephone" name="telephone" required placeholder="Numéro de téléphone">
+                <input type="tel" id="telephone" name="telephone" maxlength="10" required placeholder="Numéro de téléphone">
 
                 <!-- <label for="email"></label> -->
                 <input type="email" id="email" name="email" required placeholder="Email">

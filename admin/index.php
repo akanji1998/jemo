@@ -1,3 +1,9 @@
+<?php
+
+include("database/connexion.php");
+include("database/admin_global_request.php");
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,7 +41,9 @@
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <img class="img-profile" src="../media/public/images/photos_membres/ppp.png"
                                         width="35">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Michel Amani</span>
+                                    <span
+                                        class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $admin['nom_administrateur'] ?>
+                                        <?= $admin['prenom_administrateur'] ?></span>
                                 </a>
                                 <!-- Dropdown - User Information -->
                                 <div class="dropdown-menu dropdown-menu-end shadow animated--grow-in"
@@ -49,7 +57,7 @@
                                         Paramètres
                                     </a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                    <a class="dropdown-item" href="javascript:deconnexion()" data-bs-toggle="modal"
                                         data-bs-target="#logoutModal">
                                         <i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i>
                                         Se déconnecter
@@ -124,7 +132,7 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Annuler</button>
-                    <a class="btn btn-success" href="login.php">Se déconnecter</a>
+                    <a class="btn btn-success" href="javascript:deconnexion();">Se déconnecter</a>
                 </div>
             </div>
         </div>
@@ -134,6 +142,41 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/script.js"></script>
+     <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        function deconnexion() {
+            console.log("deconnexion");
+           
+            $.ajax({
+                url: 'http://jemo.test/admin/api/logout.php', // L'URL de votre script PHP
+                method: 'GET',
+             
+                success: function (response) {
+                    console.log(response);
+                    const res = JSON.parse(response);
+
+
+                    if (res.success) {
+                        console.log(res.redirect_url);
+                        // Si la connexion est réussie, rediriger l'utilisateur
+                        window.location.href = res.redirect_url;
+                        // Redirige vers le tableau de bord
+                    } else {
+
+                        alert(res.message); // Affiche un message d'erreur
+                        // res.redirect_url; // Redirige vers le tableau de bord
+                        //          $('#errorMessage').text('Erreur de format de réponse JSON.');
+                        // $('#errorModal').modal('show');
+                    }
+                },
+                error: function (xhr, status, error) {
+                    alert("Une erreur s'est produite lors de la connexion.");
+                    console.log(error);
+
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>

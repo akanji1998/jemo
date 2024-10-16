@@ -1,20 +1,40 @@
 <?php
 
+// $listDesAnnonces = array();
+
+// $allAnonceQuery = $conn->prepare("SELECT *  FROM annonce");
+// $annonceurQuery = $conn->prepare("SELECT * FROM annonceur WHERE id_annonceur = ?");
+// $allAnonceQuery->execute();
+
+// $listDesAnnonces = $allAnonceQuery->fetchAll(PDO::FETCH_ASSOC);
+
+// foreach ($listDesAnnonces as $annonce) {
+    
+//     $annonceurQuery->execute([$annonce['id_annonceur']]);
+//     $annonceur = $annonceurQuery->fetchAll(PDO::FETCH_ASSOC);;
+//     $annonce['auteur'] = $annonceur;
+//     # code...
+// }
+
 $listDesAnnonces = array();
 
-$allAnonceQuery = $conn->prepare("SELECT *  FROM annonce WHERE id_annonceur =?");
+$allAnonceQuery = $conn->prepare("SELECT * FROM annonce");
 $annonceurQuery = $conn->prepare("SELECT * FROM annonceur WHERE id_annonceur = ?");
-$allAnonceQuery->execute([$_SESSION['user_id']]);
+$allAnonceQuery->execute();
 
 $listDesAnnonces = $allAnonceQuery->fetchAll(PDO::FETCH_ASSOC);
 
-foreach ($listDesAnnonces as $annonce) {
+foreach ($listDesAnnonces as $key => $annonce) {
     
+    // Récupérer l'annonceur pour chaque annonce
     $annonceurQuery->execute([$annonce['id_annonceur']]);
-    $annonceur = $annonceurQuery->fetchColumn();
-    $annonce['auteur'] = $annonceur;
-    # code...
+    $annonceur = $annonceurQuery->fetch(PDO::FETCH_ASSOC); // Utilisation de fetch au lieu de fetchAll pour un seul résultat
+    $listDesAnnonces[$key]['auteur'] = $annonceur;
+    // La mise à jour est effectuée directement dans $listDesAnnonces à l'indice correspondant
 }
+
+// Maintenant $listDesAnnonces contiendra chaque annonce avec l'auteur associé.
+
 
 
 

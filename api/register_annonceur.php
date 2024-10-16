@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $date_naissance = htmlspecialchars($_POST['date_naissance']);
     $username = htmlspecialchars($_POST['username']);
     $interests = !empty($_POST['interest']) ? json_encode($_POST['interest']) : null; // Convertir les centres d'intérêt en JSON
-    // $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hasher le mot de passe
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hasher le mot de passe
 
 
 
@@ -39,8 +39,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     // Insertion dans la base de données
-    $sql = "INSERT INTO annonceur (nom_annonceur, prenom_annonceur, domaine_activite_annonceur, telephone_annonceur, email_annonceur, date_naissance_annonceur, username_annonceur, photo_annonceur,)
-            VALUES (:nom, :prenom, :entreprise, :telephone, :email, :date_naissance, :username, :photo)";
+    $sql = "INSERT INTO annonceur (nom_annonceur, prenom_annonceur, domaine_activite_annonceur, telephone_annonceur, email_annonceur, date_naissance_annonceur, username_annonceur, photo_annonceur,mdp_annonceur)
+            VALUES (:nom, :prenom, :entreprise, :telephone, :email, :date_naissance, :username, :photo,:mdp)";
 
     $stmt = $conn->prepare($sql);
 
@@ -54,6 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ':date_naissance' => $date_naissance,
         ':username' => $username,
         ':photo' => $imagePath,
+        ':mdp' => $password
      
     ]);
 

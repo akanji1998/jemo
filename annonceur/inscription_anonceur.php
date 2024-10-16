@@ -6,30 +6,39 @@ include '../database/connexion.php';
 ?>
 
 <!-- Head et doctype -->
-<?php include '../composants/header.php'; ?>
-
+<?php //include '../composants/header.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="css/globals.css" />
-    <link rel="stylesheet" href="css/styleguide.css" />
-    <link rel="stylesheet" href="css/style.css" />
-</head>
-<body>
 
-<!-- HTML Structure for Modal -->
-<div id="customModal" class="modal" style="display: none;">
-    <div class="modal-content">
-      <span class="close-btn">&times;</span>
-      <div class="modal-body">
-        <img src="path/to/icon.png" alt="Icon" class="modal-icon" />
-        <h2>Désolé</h2>
-        <p>La fonctionnalité est en plein déploiement et sera disponible bientôt</p>
-      </div>
+
+<head>
+        <meta charset="utf-8" />
+        <meta name="author" content="" />
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <link rel="stylesheet" href="../css/globals.css" />
+        <link rel="stylesheet" href="../css/styleguide.css" />
+        <link rel="stylesheet" href="../css/style.css" />
+        <!-- <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" /> -->
+        <title>Jemo.ci</title>
+        <!-- <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script> -->
+        <!-- Custom CSS -->
+        <link href="../css/blog-home.css" rel="stylesheet">
+    </head>
+
+<body>
+    <!-- HTML Structure for Modal -->
+    <div id="customModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div class="modal-body">
+                <img src="path/to/icon.png" alt="Icon" class="modal-icon" />
+                <h2>Désolé</h2>
+                <p>La fonctionnalité est en plein déploiement et sera disponible bientôt</p>
+            </div>
+        </div>
     </div>
-  </div>
 
 
     <header class="section header">
@@ -56,19 +65,21 @@ include '../database/connexion.php';
                     <div class="radio_btn_step"></div>
                     <div class="radio_btn_step"></div>
                 </div>
-                
+
                 <!-- <label for="nom">Nom</label> -->
                 <input type="text" id="nom" name="nom" required placeholder="nom">
 
                 <!-- <label for="prenom">Prénom</label> -->
                 <input type="text" id="prenom" name="prenom" required placeholder="prenom">
-                
+
                 <!-- <label for="specialite">Choisir votre spécialité</label> -->
-                <input type="text" id="entreprise" name="entreprise" required placeholder="Nom entreprise ou  secteur d’activite">
-                
+                <input type="text" id="entreprise" name="entreprise" required
+                    placeholder="Nom entreprise ou  secteur d’activite">
+
 
                 <!-- <label for="telephone"></label> -->
-                <input type="tel" id="telephone" name="telephone" required placeholder="Numéro de téléphone">
+                <input type="tel" id="telephone" maxlength="10" name="telephone" required
+                    placeholder="Numéro de téléphone">
 
                 <!-- <label for="email"></label> -->
                 <input type="email" id="email" name="email" required placeholder="Email">
@@ -87,26 +98,26 @@ include '../database/connexion.php';
                     <div class="radio_btn_step step-active"></div>
                     <div class="radio_btn_step"></div>
                 </div>
-                
+
                 <!-- <label for="username"></label> -->
                 <input type="text" id="username" name="username" required placeholder="Username">
 
                 <!-- <label for="photo">Uploader une photo de profil</label> -->
-                 <!-- <div class="box_drapAnddrop">
+                <!-- <div class="box_drapAnddrop">
                      <input type="file" id="photo" name="photo" accept="image/*" placeholder="Uploader une photo de profil">
                  </div> -->
 
-                 <div class="box_drapAnddrop">
+                <div class="box_drapAnddrop">
                     <div class="drag-drop-area" id="dragDropArea">
                         <p>Glissez et déposez une photo ici ou <span>Cliquez pour ajouter</span></p>
                         <input type="file" id="photo" name="photo" accept="image/*" style="display: none;">
                     </div>
                 </div>
-                
+
                 <div class="box_btn">
-                <button type="button" class="btn-prev">Retour</button>
-                <button type="button" class="btn-next">Suivant</button>
-            </div>
+                    <button type="button" class="btn-prev">Retour</button>
+                    <button type="button" class="btn-next">Suivant</button>
+                </div>
             </div>
 
             <!-- Étape 3 -->
@@ -116,12 +127,13 @@ include '../database/connexion.php';
                     <div class="radio_btn_step"></div>
                     <div class="radio_btn_step"></div>
                     <div class="radio_btn_step step-active"></div>
-                </div>                
+                </div>
                 <!-- <label for="password">Mot de passe</label> -->
                 <input type="password" id="password" name="password" required placeholder="Mot de passe">
 
                 <!-- <label for="confirm_password">Confirmation mot de passe</label> -->
-                <input type="password" id="confirm_password" name="confirm_password" required placeholder="Confirmation mot de passe">
+                <input type="password" id="confirm_password" name="confirm_password" required
+                    placeholder="Confirmation mot de passe">
 
                 <div class="box_btn">
                     <button type="button" class="btn-prev">Retour</button>
@@ -132,7 +144,7 @@ include '../database/connexion.php';
     </div>
 
     <!-- <script src="../js/script.js"></script> -->
-     <script src="../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/jquery-3.6.0.min.js"></script>
     <!-- <script src="../js/script.js"></script> -->
     <script>
         $(document).ready(function () {
@@ -320,4 +332,13 @@ include '../database/connexion.php';
 
     </script>
 </body>
+
 </html>
+
+
+
+
+
+
+
+

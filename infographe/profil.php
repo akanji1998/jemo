@@ -13,6 +13,24 @@ include('../database/infographe/infographe_request.php'); ?>
     <link rel="stylesheet" href="../css/globals.css" />
     <link rel="stylesheet" href="../css/styleguide.css" />
     <link rel="stylesheet" href="../css/style.css" />
+    <style>
+        .realisation-card {
+            width: 100%;
+            height: 400px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+        }
+
+        .realisation-card p {
+            font-size: 18px;
+            color: #999;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -74,7 +92,8 @@ include('../database/infographe/infographe_request.php'); ?>
                     <div class="box_summ">
                         <div class="origin_x_name">
                             <div class="name"><?= $infographe['nom_infographe'] ?>
-                                <?= $infographe['prenom_infographe'] ?></div>
+                                <?= $infographe['prenom_infographe'] ?>
+                            </div>
                             <div class="origin">Côte d'ivoire, Songon</div>
                         </div>
 
@@ -121,32 +140,27 @@ include('../database/infographe/infographe_request.php'); ?>
 
                 <h4 class="portfolio">Portfolio</h4>
                 <div class="box_illustation_created">
-                    <?php
-                        foreach ($realisations as $afficher ) {
-                            # code...
-                        
-                    ?>
-                    <div class="card_illustration_created illustration_01">
-                        <p class="illustration_description">
-                            <?= $afficher['libelle_realisation'] ?>
-                        </p>
-                    </div>
+                     <?php if (empty($realisations) ) {
+                        # code...
+                    
+                        ?>
+                        <div class="realisation-card">
+                             <p>Ce professionnel n'a pas encore ajouté de réalisation</p>
+                        </div>
                     <?php } ?>
-                    <div class="card_illustration_created illustration_01">
-                        <p class="illustration_description">
-                            Conception de storyboard
-                        </p>
-                    </div>
-                    <div class="card_illustration_created illustration_01">
-                        <p class="illustration_description">
-                            Montage vidéo
-                        </p>
-                    </div>
-                    <div class="card_illustration_created illustration_01">
-                        <p class="illustration_description">
-                            Charte graphique
-                        </p>
-                    </div>
+                 
+                    <?php
+                    foreach ($realisations as $afficher) {
+                        # code...
+                    
+                        ?>
+                        <div class="card_illustration_created illustration_01">
+                            <p class="illustration_description">
+                                <?= $afficher['libelle_realisation'] ?>
+                            </p>
+                        </div>
+                    <?php } ?>
+                   
 
                 </div>
 

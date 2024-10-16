@@ -27,22 +27,7 @@ try {
     // Récupérer les informations de l'annonceur
     $annonceur = $annonceurQuery->fetch(PDO::FETCH_ASSOC); // Utiliser fetch() si on s'attend à une seule ligne
     
-    // // Vérifier et afficher les résultats
-    // if ($listDesAnnonces) {
-    //     echo "<pre>";
-    //     print_r($listDesAnnonces); // Pour debug : afficher les annonces récupérées
-    //     echo "</pre>";
-    // } else {
-    //     echo "Aucune annonce trouvée pour cet annonceur.";
-    // }
-
-    // if ($annonceur) {
-    //     echo "<pre>";
-    //     print_r($annonceur); // Pour debug : afficher l'annonceur
-    //     echo "</pre>";
-    // } else {
-    //     echo "Aucun annonceur trouvé.";
-    // }
+  
 
 } catch (PDOException $e) {
     echo "Erreur lors de la récupération des annonces ou annonceur : " . $e->getMessage();

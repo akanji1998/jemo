@@ -101,42 +101,33 @@ include 'database/fetch_annonce.php';
                                         <th>Titre</th>
                                         <th>Description</th>
                                         <th>Auteur</th>
-                                        <th>Status</th>
+
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <!-- First Annonce -->
-                                     <?php 
-                                        foreach ($listDesAnnonces as $afficher) {
-                                            # code...
-                                        
-                                     ?>
-                                    <tr class="border-bottom">
-                                        <td><?= $afficher['titre_annonce'] ?></td>
-                                        <td><?= $afficher['description_annonce'] ?></td>
-                                        <td><?= $afficher['auteur']['username_annonceur'] ?></td>
-                                        <td>En attente</td>
-                                        <td>
-                                            <a href="#" class="me-2 text-success"><i class="fas fa-check"></i></a>
-                                            <a href="#" class="me-2 text-danger"><i class="fas fa-times"></i></a>
-                                            <a href="#" class="me-2"><i class="fas fa-eye"></i></a>
-                                            <a href="#" class="text-muted"><i class="fas fa-trash"></i></a>
-                                        </td>
-                                    </tr>
+                                    <?php
+                                    foreach ($listDesAnnonces as $afficher) {
+                                        # code...
+                                    
+                                        ?>
+                                        <tr class="border-bottom" data-id="<?= $afficher['id_annonce'] ?>">
+                                            <td><?= $afficher['titre_annonce'] ?></td>
+                                            <td><?= $afficher['description_annonce'] ?></td>
+                                            <td><?= $afficher['auteur']['username_annonceur'] ?></td>
+
+                                            <td>
+                                         
+
+                                                <a href="#" class="me-2"><i class="fas fa-eye"></i></a>
+
+                                                <!-- <a href="#"><i class="fas fa-trash"></i></a> -->
+                                                <a href="#" class="text-danger delete-btn"><i class="fas fa-trash"></i></a>
+                                            </td>
+                                        </tr>
                                     <?php } ?>
-                                    <tr class="border-bottom">
-                                        <td>Conception de logo</td>
-                                        <td>Je souhaite concevoir un logo pour ma société</td>
-                                        <td>225 Consulting</td>
-                                        <td>En attente</td>
-                                        <td>
-                                            <a href="#" class="me-2 text-success"><i class="fas fa-check"></i></a>
-                                            <a href="#" class="me-2 text-danger"><i class="fas fa-times"></i></a>
-                                            <a href="#" class="me-2"><i class="fas fa-eye"></i></a>
-                                            <a href="#" class="text-muted"><i class="fas fa-trash"></i></a>
-                                        </td>
-                                    </tr>
+
                                 </tbody>
                             </table>
                         </div>
@@ -168,6 +159,53 @@ include 'database/fetch_annonce.php';
     <!-- Bootstrap JS & Font Awesome -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+
+
+            console.log("page loaded");
+
+
+            $(document).on('click', '.delete-btn', function (e) {
+                e.preventDefault();
+
+                console.log("deleting");
+
+                // Récupérer l'ID du domaine à partir de l'attribut data-id du parent <tr>
+                let row = $(this).closest('tr');
+                let id = row.data('id');
+                console.log(id);
+                // Confirmation de suppression
+                if (confirm('Voulez-vous vraiment supprimer ce annonce ?')) {
+                    // Envoi de la requête AJAX
+                    $.ajax({
+                        url: 'http://jemo.test/admin/api/delete_annonce.php', // Le fichier PHP qui gère la suppression
+                        type: 'POST',
+                        data: { 'id': id },
+                        success: function (response) {
+                            console.log(response);
+                            let result = JSON.parse(response);  // Tente de parser la réponse JSON
+
+                            if (result.success) {
+                                // Si la suppression est un succès, retirer la ligne du tableau
+                                row.remove();
+                            } else {
+                                alert('Erreur : ' + response.error);
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            console.log(error);
+                            console.error('Erreur lors de la suppression du domaine :', error);
+                        }
+                    });
+                }
+            });
+
+        });
+
+    </script>
 </body>
 
 </html>

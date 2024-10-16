@@ -111,10 +111,10 @@ include 'database/fetch_annonceur.php';
                                             # code...
                                         
                                      ?>
-                                    <tr class="border-bottom">
+                                    <tr class="border-bottom" data-id="<?= $afficher['id_annonceur'] ?>">
                                         <td>
                                             <div class="d-flex align-items-center">
-                                                <img src="jean-jacques.png" alt="Jean-jacques" class="rounded-circle"
+                                                <img src="http://jemo.test/api/<?= $afficher['photo_annonceur'] ?>" alt="Jean-jacques" class="rounded-circle"
                                                     width="40" height="40" class="me-3">
                                                 <div class="ms-2">
                                                     <strong><?= $afficher['nom_annonceur'] . ' '. $afficher['prenom_annonceur'] ?></strong><br>
@@ -125,30 +125,16 @@ include 'database/fetch_annonceur.php';
                                         <td><?= $afficher['date_inscription_annonceur'] ?></td>
                                         <td><?= $afficher['nbr_annonces'] ?></td>
                                         <td>
-                                            <a href="#" class="me-2"><i class="fas fa-eye"></i></a>
+                                            
+                                            <a href="voir_annonceur.php?edit=<?= $afficher['id_annonceur'] ?>" class="text-primary"><i class="fas fa-eye"></i></a>
+                                            <a href="#" class="text-danger delete-btn"><i class="fas fa-trash"></i></a>
+                                            <!-- <a href="#" class="me-2"><i class="fas fa-eye"></i></a>
                                             <a href="#" class="me-2"><i class="fas fa-edit"></i></a>
-                                            <a href="#"><i class="fas fa-trash"></i></a>
+                                            <a href="#"><i class="fas fa-trash"></i></a> -->
                                         </td>
                                     </tr>
                                     <?php } ?>
-                                     <tr class="border-bottom">
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <img src="jean-jacques.png" alt="Jean-jacques" class="rounded-circle" width="40" height="40" class="me-3">
-                                                <div class="ms-2">
-                                                    <strong>Jean-jacques</strong><br>
-                                                    <span class="text-muted">225 Consulting</span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>20/08/2024</td>
-                                        <td>5</td>
-                                        <td>
-                                            <a href="#" class="me-2"><i class="fas fa-eye"></i></a>
-                                            <a href="#" class="me-2"><i class="fas fa-edit"></i></a>
-                                            <a href="#"><i class="fas fa-trash"></i></a>
-                                        </td>
-                                    </tr>
+                                    
                                 </tbody>
                             </table>
                         </div>
@@ -178,8 +164,58 @@ include 'database/fetch_annonceur.php';
     </div>
 
     <!-- Bootstrap JS & Font Awesome -->
+     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+
+ <script>
+      $(document).ready(function () {
+
+
+
+            console.log("page loaded");
+
+
+            $(document).on('click', '.delete-btn', function (e) {
+                e.preventDefault();
+
+                console.log("deleting");
+
+                // Récupérer l'ID du domaine à partir de l'attribut data-id du parent <tr>
+                let row = $(this).closest('tr');
+                let id = row.data('id');
+                console.log(id);
+                // Confirmation de suppression
+                if (confirm('Voulez-vous vraiment supprimer ce domaine ?')) {
+                    // Envoi de la requête AJAX
+                    $.ajax({
+                        url: 'http://jemo.test/admin/api/delete_annonceur.php', // Le fichier PHP qui gère la suppression
+                        type: 'POST',
+                        data: { 'id': id },
+                        success: function (response) {
+                            console.log(response);
+                            let result = JSON.parse(response);  // Tente de parser la réponse JSON
+
+                            if (result.success) {
+                                // Si la suppression est un succès, retirer la ligne du tableau
+                                row.remove();
+                            } else {
+                                alert('Erreur : ' + response.error);
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            console.log(error);
+                            console.error('Erreur lors de la suppression du domaine :', error);
+                        }
+                    });
+                }
+            });
+
+        });
+
+      
+
+    </script>
 </body>
 
 </html>
