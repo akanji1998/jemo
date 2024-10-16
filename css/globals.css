@@ -10,13 +10,19 @@ header{
     padding: .5rem;
 }
 
-a{
+a.primary_style{
     text-decoration: none;
-    /* padding: 10px; */
-    /* color: white; */
+    padding: 10px;
+    color: white;
+}
+
+a.second_style{
+    text-decoration: none;
+    padding: 10px;
+    color: #094523;
 }
 a:visited{
-    /* color: white; */
+    color: white;
 }
 
 footer a:hover{
@@ -34,4 +40,9 @@ footer a:hover{
 
 .section{
     padding: 5rem 4rem 0rem 5rem;
+}
+
+
+.active{
+    font-weight: bold;
 }

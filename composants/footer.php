@@ -4,31 +4,31 @@
             <div class="box_footer_items">
                 <div class="container_items">
                     <ul>
-                        <li>  <a href="topfreelancer.php">Top Freelancer</a></li>
-                        <li  ><a href="photographe.php">Photographe</a></li>
-                        <li  ><a href="motion.php">motion designer / monteur</a></li>
-                        <li>  <a href="illustrateur.php">illustrateur 2D</a></li>
-                        <li>  <a href="integrateur.php">intégrateur web</a></li>
-                        <li>  <a href="pao.php">PAO</a></li>
+                        <li>  <a class="primary_style" href="topfreelancer.php">Top Freelancer</a></li>
+                        <li  ><a class="primary_style" href="photographe.php">Photographe</a></li>
+                        <li  ><a class="primary_style" href="motion.php">motion designer / monteur</a></li>
+                        <li>  <a class="primary_style" href="illustrateur.php">illustrateur 2D</a></li>
+                        <li>  <a class="primary_style" href="integrateur.php">intégrateur web</a></li>
+                        <li>  <a class="primary_style" href="pao.php">PAO</a></li>
                     </ul>
                     <ul>
-                        <li>  <a href="blog.php">Blog</a></li>
-                        <li>  <a href="formations.php">Formations</a></li>
-                        <li>  <a href="recrutement.php">recrutements</a></li>
-                        <li>  <a href="support.php">helps_&_Supports-jemo</a></li>
-                        <li>  <a href="apropos.php">A propos</a></li>
+                        <li>  <a class="primary_style" href="blog.php">Blog</a></li>
+                        <li>  <a class="primary_style" href="formations.php">Formations</a></li>
+                        <li>  <a class="primary_style" href="recrutement.php">recrutements</a></li>
+                        <li>  <a class="primary_style" href="support.php">helps_&_Supports-jemo</a></li>
+                        <li>  <a class="primary_style" href="apropos.php">A propos</a></li>
                     </ul>
                     <ul>
                         <!-- <li>  <a href="#">Politique de confidentialité</a></li> -->
-                        <li>  <a href="cookies.php">Gestion des cookies</a></li>
-                        <li>  <a href="conditions.php">Termes et conditions</a></li>
-                        <li>  <a href="legislationivoire.php">Législation ivoirienne</a></li>
+                        <li>  <a class="primary_style" href="cookies.php">Gestion des cookies</a></li>
+                        <li>  <a class="primary_style" href="conditions.php">Termes et conditions</a></li>
+                        <li>  <a class="primary_style" href="legislationivoire.php">Législation ivoirienne</a></li>
                     </ul>
                     <ul>
-                        <li><a href="pub.php">Régie publicitaire</a></li>
-                        <li><a href="agence.php">Agence d'automation</a></li>
-                        <li><a href="hacktaton.php">hackaton</a></li>
-                        <li><a href="partenaires.php">Partenaires</a></li>
+                        <li><a class="primary_style" href="pub.php">Régie publicitaire</a></li>
+                        <li><a class="primary_style" href="agence.php">Agence d'automation</a></li>
+                        <li><a class="primary_style" href="hacktaton.php">hackaton</a></li>
+                        <li><a class="primary_style" href="partenaires.php">Partenaires</a></li>
                     </ul>
                 </div>
                 <div>

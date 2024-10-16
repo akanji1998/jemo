@@ -100,11 +100,11 @@ include 'composants/navigation.php';
                 # code...
             
                 ?>
-                <li class="job_item"><a href="photographe.php"><?= $afficher['nom_domaine'] ?></a></li>
+                <li class="job_item"><a class="second_style" href="photographe.php"><?= $afficher['nom_domaine'] ?></a></li>
             <?php } ?>
-            <li class="job_item"><a href="infographiste.php">infographiste PAO </a></li>
-            <li class="job_item"><a href="integrateur.php">Intégrateur web </a></li>
-            <li class="job_item"><a href="monteur.php">Monteur vidéo </a></li>
+            <li class="job_item"><a class="second_style" href="infographiste.php">infographiste PAO </a></li>
+            <li class="job_item"><a class="second_style" href="integrateur.php">Intégrateur web </a></li>
+            <li class="job_item"><a class="second_style" href="monteur.php">Monteur vidéo </a></li>
         </ul>
     </section>
 

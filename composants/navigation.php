@@ -19,7 +19,7 @@
                     <nav>
                         <!-- retour a l'accueil -->
                         <ul>
-                            <li class="back_users_home_page"><a href="../index.php">Accueil</a></li>
+                            <li class="back_users_home_page active "><a href="index.php" class="primary_style">Accueil</a></li>
                         </ul>
                         <!-- lien metier -->
                         <ul>
@@ -28,20 +28,19 @@
                                 # code...
                             
                                 ?>
-                                <li class="job_item trigger-modal"><a
+                                <li class="job_item trigger-modal"><a  class=" primary_style" 
                                         href="site/recherche.php?cat=<?= $afficher['nom_domaine'] ?>"><?= $afficher['nom_domaine'] ?></a>
                                 </li>
                             <?php } ?>
-                            <li class="job_item trigger-modal"><a href="site/recherche.php?cat=jdsqdfs">infographiste
+                            <li class="job_item trigger-modal"><a  class=" primary_style" href="site/recherche.php?cat=jdsqdfs">infographiste
                                     PAO</a></li>
-                            <li class="job_item trigger-modal"><a href="integrateur.php"> Intégrateur web </a></li>
-                            <li class="job_item trigger-modal"><a href="monteur.php"> Monteur vidéo </a></li>
+                            <li class="job_item trigger-modal"><a  class=" primary_style" href="integrateur.php"> Intégrateur web </a></li>
+                            <li class="job_item trigger-modal"><a  class=" primary_style" href="monteur.php"> Monteur vidéo </a></li>
                         </ul>
                         <!-- Lien pour etre -->
                         <ul>
-                            <li class="to_be"><a href="infographe/inscription_infographiste.php">Devenir infographiste
-                                </a></li>
-                            <li class="to_be"><a href="<?php echo $_SESSION['user_type'] == "annoceur" ? "annonceur/dashboard.php" : "connexion.php"; ?>">Publier une annonce </a></li>
+                            <li class="to_be"><a href="infographe/inscription_infographiste.php" class="primary_style">Devenir infographiste</a></li>
+                            <li class="to_be"><a class="primary_style" href="<?php //echo $_SESSION['user_type'] == "annoceur" ? "annonceur/dashboard.php" : "connexion.php"; ?>">Publier une annonce </a></li>
                         </ul>
                     </nav>
 
