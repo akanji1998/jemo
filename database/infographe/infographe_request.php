@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 $allAnnonces = array();
 $fetchAnnonces = $conn->prepare("SELECT *  FROM annonce");
 $fetchAnnonces->execute();
@@ -21,6 +21,11 @@ foreach ($realisations as $element) {
     $imageQuery->execute([$element['id_realisation']]);
     $element['images'] = $imageQuery->fetchAll(PDO::FETCH_ASSOC);
 }
+
+// Afficher les données de session (facultatif, pour debug)
+echo "User ID: " . $_SESSION['user_id'] . "<br>";
+echo "Username: " . $_SESSION['username'] . "<br>";
+echo "type: " . $_SESSION['user_type'] . "<br>";
 
 
 

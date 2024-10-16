@@ -45,19 +45,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Vérification du mot de passe
         if ($user && password_verify($password, $user['mdp_infographe'])) {
             // Si les informations d'identification sont valides, démarrer la session
-            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['user_id'] = $user['id_infographe'];
             $_SESSION['user_email'] = $user['email_infographe'];
-            $_SESSION['nom'] = $user['nom_infographe'];
-            $_SESSION['prenom'] = $user['prenom_infographe'];
             $_SESSION['username'] = $user['username_infographe'];
             $_SESSION['user_type'] = $user_type;
-
-
             // Réponse JSON avec succès et redirection
             echo json_encode(['success' => true, 'redirect_url' => $redirect_url]);
         } else {
-            // Réponse JSON avec message d'erreur
             echo json_encode(['success' => false, 'message' => 'Nom d\'utilisateur ou mot de passe incorrect.']);
+            // Réponse JSON avec message d'erreur
         }
     }
 

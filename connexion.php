@@ -94,6 +94,7 @@
                         "password": password
                     },
                     success: function (response) {
+                            console.log(response);
                         const res = JSON.parse(response);
                         console.log(res);
                                   $('.connexion_form')[0].reset();

@@ -1,4 +1,4 @@
-<?php 
+<?php
 include '../database/connexion.php';
 include('../database/infographe/infographe_request.php'); ?>
 <!DOCTYPE html>
@@ -77,11 +77,10 @@ include('../database/infographe/infographe_request.php'); ?>
                 <!-- BARRE DE RECHERCHE -->
 
                 <div class="box_searchform">
-                  
-                 <input type="search" id="searchInput" placeholder="logo, montage, web, motion, affiche...">
-                 <input type="submit"
-                            value="Trouver" id="searchButton">
-                 
+
+                    <input type="search" id="searchInput" placeholder="logo, montage, web, motion, affiche...">
+                    <input type="submit" value="Trouver" id="searchButton">
+
                 </div>
 
                 <!-- lien metier -->
@@ -97,36 +96,33 @@ include('../database/infographe/infographe_request.php'); ?>
 
         <div class="container_resultat_mission my-5">
             <h5>Résultats de recherche</h5>
-            <p class="text-muted">23 sur 6000 trouvés</p>
+            <p class="text-muted"><span id="trouver"><?= count($allAnnonces); ?></span> trouvés</p>
             <div class="row">
                 <!-- Left Side: Search Results -->
                 <div class="col-md-7" id="results">
+                    <?php
+                    foreach ($allAnnonces as $afficher) {
+                        # code...
+                    
+                        ?>
+                        <div class="list-group m-2">
+                            <a href="javascript:fetchAnnonceDetail(<?= $afficher['id_annonce'] ?>)"
+                                class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1"><?= $afficher['titre_annonce'] ?></h5>
+                                    <small><?= $afficher['date_annonce'] ?></small>
+                                </div>
+                                <p class="mb-1"><?= $afficher['description_annonce'] ?></p>
+                            </a>
+                            <!-- Repeat this block for more search results -->
+                        </div>
+                    <?php } ?>
 
-                    <div class="list-group m-2">
-                        <a href="#" class="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">"Neque porro quisquam est..."</h5>
-                                <small>12:12 PM</small>
-                            </div>
-                            <p class="mb-1">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet...</p>
-                        </a>
-                        <!-- Repeat this block for more search results -->
-                    </div>
-                    <div class="list-group m-2">
-                        <a href="javascript:fetchAnnonceDetail(0)" class="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">"Neque porro quisquam est..."</h5>
-                                <small>12:12 PM</small>
-                            </div>
-                            <p class="mb-1">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet...</p>
-                        </a>
-                        <!-- Repeat this block for more search results -->
-                    </div>
                 </div>
 
                 <!-- Right Side: Job Description -->
                 <div class="col-md-5" id="resultAnnonceDetail">
-                    <div class="card" >
+                    <!-- <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Conception de logo</h4>
                             <p class="card-text"><strong>Entreprise:</strong> 2K Group</p>
@@ -135,17 +131,17 @@ include('../database/infographe/infographe_request.php'); ?>
                                 Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
                                 velit...
                             </p>
-                          <button class="btn btn-success btn-block"><a href="https://wa.me/2250545475763"> what's app
+                            <button class="btn btn-success btn-block"><a href="https://wa.me/2250545475763"> what's app
                                     : 05
                                     XX XX XX XX</a></button>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
 
             <!-- pagination -->
-            <ul class="pagination_mission">
+            <!-- <ul class="pagination_mission">
                 <li><a href="#" class="prev">&laquo;</a></li>
                 <li><a href="#">1</a></li>
                 <li class="active"><a href="#">2</a></li>
@@ -153,7 +149,7 @@ include('../database/infographe/infographe_request.php'); ?>
                 <li><a href="#">4</a></li>
                 <li><a href="#">5</a></li>
                 <li><a href="#" class="next">&raquo;</a></li>
-            </ul>
+            </ul> -->
         </div>
 
 
@@ -161,27 +157,33 @@ include('../database/infographe/infographe_request.php'); ?>
 
 
     <script src="script_hovers.js"></script>
-      <script src="../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/jquery-3.6.0.min.js"></script>
     <script>
         // Fonction pour faire une requête AJAX avec jQuery
-        function fetchAnnonceDetail(query) {
-            console.log(query);
+        function fetchAnnonceDetail(id) {
+            console.log(id);
             // URL de l'API (à remplacer par l'API réelle)
-            const apiUrl = `http://jemo.test/api/search_annonces.php?q=${query}`;
+            const apiUrl = `http://jemo.test/api/search_annonce_by_id.php?id=${id}`;
 
             // Requête AJAX avec jQuery
             $.ajax({
                 url: apiUrl, // URL de l'API
                 method: 'GET', // Méthode GET
-                success: function (data) {
-                    console.log(data);
-                    
-                    // Traiter les données en cas de succès
-                    if (!data || !data.data || !data.data.infographe || data.data.infographe.length === 0) {
-                        $('#resultAnnonceDetail').html("Une erreur s'est produite lors de la récupération des données.");
+                success: function (response) {
+                    console.log(response);
+                    const res = JSON.parse(response);
+
+                    if (res.success) {
+                        // Traitement des données
+                        console.log(res.data);
+
+                        displayAnnonceDetail(res.data);
                     } else {
-                        displayAnnonceDetail(data);
+                        // Gestion des erreurs
+
+                        $('#resultAnnonceDetail').html("Une erreur s'est produite lors de la récupération des données.");
                     }
+
 
                 },
                 error: function (xhr, status, error) {
@@ -200,15 +202,30 @@ include('../database/infographe/infographe_request.php'); ?>
             $.ajax({
                 url: apiUrl, // URL de l'API
                 method: 'GET', // Méthode GET
-                success: function (data) {
-                    console.log(data);
-                    
-                    // Traiter les données en cas de succès
-                    if (!data || !data.data || !data.data.infographe || data.data.infographe.length === 0) {
-                        $('#results').html("Une erreur s'est produite lors de la récupération des données.");
+                success: function (response) {
+                    console.log(response);
+                    const res = JSON.parse(response);
+
+                    if (res.success) {
+                        // Traitement des données
+                        console.log(res.data);
+                        console.log(res.data.qty);
+
+                        $('#trouver').html(res.data.qty);
+                        if (res.data.annonces.length === 0) {
+                            $('#results').html("Aucune annonce trouvé  pour votre recherche.");
+                        } else {
+                            displayResults(res.data.annonces);
+
+                        }
                     } else {
-                        displayResults(data);
+                        // Gestion des erreurs
+
+                        $('#results').html("Une erreur s'est produite lors de la récupération des données.");
                     }
+
+                    // Traiter les données en cas de succès
+
 
                 },
                 error: function (xhr, status, error) {
@@ -221,35 +238,29 @@ include('../database/infographe/infographe_request.php'); ?>
 
         // Fonction pour afficher les résultats
         function displayAnnonceDetail(data) {
+            console.log("displayAnnonceDetail")
             const resultsDiv = $('#resultAnnonceDetail');
             resultsDiv.empty(); // Nettoyer les anciens résultats
             console.log(data);
-            if (data && data.length > 0) {
-                data.forEach(item => {
-                    const itemDiv = $(`
-                  <div class="card" >
-                        <div class="card-body">
-                            <h4 class="card-title">Conception de logo</h4>
-                            <p class="card-text"><strong>Entreprise:</strong> 2K Group</p>
-                            <p><strong>Description de la mission:</strong></p>
-                            <p>
-                                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
-                                velit...
-                            </p>
-                          <button class="btn btn-success btn-block"><a href="https://wa.me/2250545475763"> what's app
-                                    : 05
-                                    XX XX XX XX</a></button>
-                        </div>
+            //  const annonce = JSON.parse(data);
+            $('#resultAnnonceDetail').html(`
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">${data.titre_annonce}</h4>
+                        <p class="card-text"><strong>Entreprise:</strong> ${data.titre_annonce}</p>
+                        <p><strong>Description de la mission:</strong></p>
+                        <p>${data.description_annonce}</p>
+                        <button class="btn btn-success btn-block">
+                            <a href="https://wa.me/${data.annonceur.telephone_annonceur.replace(/ /g, '')}"> WhatsApp : ${data.annonceur.telephone_annonceur}</a>
+                        </button>
                     </div>
-            `); // Utilisation des backticks pour inclure le HTML dans la chaîne de texte
-                    $('#results').append(itemDiv);
-                });
-            } else {
-                $('#results').text("Aucun résultat trouvé.");
-            }
+                </div>
+            `);
+
         }
 
         function displayResults(data) {
+
             const resultsDiv = $('#results');
             resultsDiv.empty(); // Nettoyer les anciens résultats
             console.log(data);
@@ -257,14 +268,14 @@ include('../database/infographe/infographe_request.php'); ?>
                 data.forEach(item => {
                     const itemDiv = $(`
                  <div class="list-group m-2">
-                        <a href="#" class="list-group-item list-group-item-action">
+                        <a href="javascript:fetchAnnonceDetail(${item.id_annonce})" class="list-group-item list-group-item-action">
                             <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">"Neque porro quisquam est..."</h5>
-                                <small>12:12 PM</small>
+                                <h5 class="mb-1">${item.titre_annonce}</h5>
+                                <small>${item.date_annonce}</small>
                             </div>
-                            <p class="mb-1">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet...</p>
+                            <p class="mb-1">${item.description_annonce}</p>
                         </a>
-                        <!-- Repeat this block for more search results -->
+                       
                     </div>
             `); // Utilisation des backticks pour inclure le HTML dans la chaîne de texte
                     $('#results').append(itemDiv);
@@ -277,10 +288,10 @@ include('../database/infographe/infographe_request.php'); ?>
         // Ajoutez un écouteur d'événements au bouton de recherche
         $('#searchButton').on('click', function () {
             const query = $('#searchInput').val();
-           
 
-                searchAPI(query); // Appeler la fonction de recherche avec la valeur de l'entrée
-           
+
+            searchAPI(query); // Appeler la fonction de recherche avec la valeur de l'entrée
+
         });
     </script>
 </body>

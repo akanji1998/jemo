@@ -5,6 +5,7 @@ require('../database/connexion.php');
 // Vérification si la requête est en POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Récupérer les données du formulaire
+    $id_annonceur = htmlspecialchars($_POST['id_annonceur']); // Assurez-vous que l'ID est fourni pour identifier l'enregistrement
     $nom = htmlspecialchars($_POST['nom']);
     $prenom = htmlspecialchars($_POST['prenom']);
     $entreprise = htmlspecialchars($_POST['entreprise']);
@@ -17,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 
+    // Vérification et gestion de l'image
     if (isset($_FILES['photo'])) {
         $image = $_FILES['photo'];
         $imageName = time() . '_' . $image['name']; // Générer un nom unique pour le fichier
@@ -30,17 +32,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $imagePath = $uploadDirectory . $imageName;
         // Déplacer le fichier uploadé dans le répertoire 'uploads/'
         if (!move_uploaded_file($image['tmp_name'], $imagePath)) {
-            echo json_encode(['success' => false, 'message' => 'image not saved !!.']);
+            echo json_encode(['success' => false, 'message' => 'image not saved !!']);
         }
     } else {
-        echo json_encode(['success' => false, 'message' => 'image not saved !!.']);
-
+        // Si aucune nouvelle image n'est uploadée, garder l'ancienne image
+        $imagePath = $_POST['existing_photo']; // Le chemin de l'ancienne photo passée depuis le formulaire
     }
 
 
-    // Insertion dans la base de données
-    $sql = "INSERT INTO annonceur (nom_annonceur, prenom_annonceur, domaine_activite_annonceur, telephone_annonceur, email_annonceur, date_naissance_annonceur, username_annonceur, photo_annonceur,)
-            VALUES (:nom, :prenom, :entreprise, :telephone, :email, :date_naissance, :username, :photo)";
+    // Requête de mise à jour dans la base de données
+
+
+    $sql = "UPDATE annonceur 
+        SET nom_annonceur = :nom, 
+            prenom_annonceur = :prenom, 
+            domaine_activite_annonceur = :entreprise, 
+            telephone_annonceur = :telephone, 
+            email_annonceur = :email, 
+            date_naissance_annonceur = :date_naissance, 
+            username_annonceur = :username, 
+            photo_annonceur = :photo
+        WHERE id_annonceur = :id_annonceur";
 
     $stmt = $conn->prepare($sql);
 
@@ -54,17 +66,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ':date_naissance' => $date_naissance,
         ':username' => $username,
         ':photo' => $imagePath,
-     
+        ':id_annonceur' => $id_annonceur // ID de l'annonceur à mettre à jour
     ]);
 
     // Réponse de succès
-    echo json_encode(['success' => true, 'message' => 'Inscription réussie !']);
+    echo json_encode(['success' => true, 'message' => 'Mise à jour réussie !']);
 } else {
     echo json_encode(['success' => false, 'message' => 'Méthode de requête non valide.']);
-
-
 }
-
-
-
-

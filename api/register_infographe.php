@@ -1,6 +1,7 @@
 <?php
 // Connexion à la base de données
 require('../database/connexion.php');
+// try {
 
 // Vérification si la requête est en POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -14,7 +15,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = htmlspecialchars($_POST['username']);
     $interests = !empty($_POST['interest']) ? json_encode($_POST['interest']) : null; // Convertir les centres d'intérêt en JSON
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hasher le mot de passe
-
 
 
     if (isset($_FILES['photo'])) {
@@ -31,38 +31,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Déplacer le fichier uploadé dans le répertoire 'uploads/'
         if (!move_uploaded_file($image['tmp_name'], $imagePath)) {
             echo json_encode(['success' => false, 'message' => 'image not saved !!.']);
-        } 
+        }
     } else {
         echo json_encode(['success' => false, 'message' => 'image not saved !!.']);
-    
+
     }
 
 
-
-
-
-
-
-
-
-    // Gestion du fichier uploadé
-    // if (isset($_FILES['photo']) && $_FILES['photo']['error'] === UPLOAD_ERR_OK) {
-    //     $photoTmpPath = $_FILES['photo']['tmp_name'];
-    //     $photoName = basename($_FILES['photo']['name']);
-    //     $photoDir = 'uploads/photos/'; // Répertoire où les photos seront stockées
-    //     $photoPath = $photoDir . $photoName;
-
-    //     // Déplacer le fichier vers le répertoire de destination
-    //     if (!move_uploaded_file($photoTmpPath, $photoPath)) {
-    //         die("Erreur lors de l'upload du fichier.");
-    //     }
-    // } else {
-    //     $photoPath = null; // Aucun fichier uploadé
-    // }
-
     // Insertion dans la base de données
-    $sql = "INSERT INTO infographe (nom_infographe, prenom_infographe, specialite_infographe, telephone_infographe, email_infographe, date_naissance_infographe, username_infographe, photo_infographe,date_inscription_infographe, mdp_infographe)
-            VALUES (:nom, :prenom, :specialite, :telephone, :email, :date_naissance, :username, :photo,date_inscription, :mdp)";
+    $sql = "INSERT INTO 
+    infographe (nom_infographe, 
+    prenom_infographe, 
+    specialite_infographe, 
+    telephone_infographe, 
+    email_infographe, 
+    date_naissance_infographe, 
+    username_infographe, 
+    photo_infographe,
+    date_inscription_infographe, 
+    mdp_infographe,
+    contrat_infographe
+    )
+    VALUES (:nom, :prenom, :specialite, :telephone, :email, :date_naissance, :username, :photo, :date_inscription, :mdp, :contrat_inf)";
 
     $stmt = $conn->prepare($sql);
 
@@ -77,8 +67,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ':username' => $username,
         ':photo' => $imagePath,
         ':date_inscription' => date('Y-m-d'),
-        ':mdp' => $password
+        ':mdp' => $password,
+        ':contrat_inf' => $interests,
     ]);
+
 
     // Réponse de succès
     echo json_encode(['success' => true, 'message' => 'Inscription réussie !']);
@@ -89,5 +81,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 
+// } catch (Exception $e) {
+//     echo json_encode(['success' => false, 'message' => $e->getMessage()
+//     ]);
 
+// } catch (PDOException $e) {
+//     echo json_encode([
+//         'success' => false,
+//         'message' => $e->getMessage()
+//     ]);
+// }
 
