@@ -84,6 +84,30 @@ include '../composants/navigation_resultatRecherche.php';
                     </div>
                 </div>
             <?php } ?>
+             <div class="cardInfographiste">
+                        <a href="profil_consultation.php">
+                            <div class="rectangle-div_radius">
+                                <div class="profil_picture"><img class="profil-picture-icon" alt=""
+                                        src="media/public/images/photos membres/phto say.png"></div>
+                                <div class="description_illustration">
+                                    <div class="name_infographiste">Moussa <span>Samuel</span></div>
+                                    <i class="job">développeur web</i>
+                                    <p class="leaders-are-made">Leaders are made rather than born. And while a real desire to
+                                        lead
+                                        is a prerequisite for be </p>
+
+                                    <div class="box_stars">
+                                        <img class="star-solid-icon" alt="dsfg" src="star-solid.svg">
+                                        <img class="star-solid-icon" alt="" src="star-solid_gray.svg">
+                                        <img class="star-solid-icon" alt="" src="star-solid_gray.svg">
+                                        <img class="star-solid-icon" alt="" src="star-solid_gray.svg">
+                                        <img class="star-solid-icon" alt="" src="star-solid_gray.svg">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
         </div>
 
         <!-- pagination -->

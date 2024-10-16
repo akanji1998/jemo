@@ -67,11 +67,14 @@ include('../database/infographe/infographe_request.php'); ?>
             <form action="">
                 <div class="">
                     <select name="metier" id="">
-                        <option value="">Developpeur web</option>
-                        <option value="">infographiste PAO</option>
-                        <option value="">Animateur 2D</option>
-                        <option value="">Photographe</option>
-                        <option value="">Illustrateur</option>
+                        <?php
+                            foreach ($categories as $afficher) {
+                                # code...
+                            
+                        ?>
+                        <option value="<?= $afficher['nom_domaine'] ?>" <?= $afficher['nom_domaine'] == $infographe['specialite_infographe'] ? "selected": "" ?>><?= $afficher['nom_domaine'] ?></option>
+                        <?php } ?>
+                      
                     </select>
                 </div>
                 <!-- juste un design -->
@@ -85,25 +88,27 @@ include('../database/infographe/infographe_request.php'); ?>
                     </div>
                 </div>
                 <div class="">
-                    <h4 class="">Mindset</h4><br>
-                    <textarea class="">"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...
+                    <h4 class="">Présentation</h4><br>
+                    <textarea class=""><?= $infographe['description_infographe'] ?>
                          </textarea>
                 </div>
 
-                <input type="text" id="nom" name="nom" required placeholder="nom"> <br>
-                <input type="text" id="prenom" name="nom" required placeholder="prenom">
-                <input type="text" id="pays" name="nom" required placeholder="Côte d’ivoire">
-                <input type="text" id="commune" name="nom" required placeholder="Songon">
+                <input type="text" id="nom" name="nom" value="<?= $infographe['nom_infographe'] ?>" required placeholder="nom"> <br>
+                <input type="text" id="prenom" name="prenom" value="<?= $infographe['prenom_infographe'] ?>" required placeholder="prenom">
+                <input type="text" id="pays" name="pays" required placeholder="Côte d’ivoire">
+                <input type="text" id="commune" name="commune" required placeholder="Songon">
 
 
                 <!-- <h3>Mode de travail</h3>
                      <input type="radio" name="Distance" id=""> Distance <br>
                      <input type="radio" name="presentiel" id=""> Présentiel -->
                 <h3>Contrat accepte </h3>
-                <input type="checkbox" name="cdd" id=""> CDD <br>
-                <input type="checkbox" name="STAGE" id=""> Stage <br>
-                <input type="checkbox" name="cdi" id=""> CDD <br>
-                <input type="checkbox" name="cdi" id=""> Freelance <br>
+
+                <input type="checkbox" name="cdd" id="" ?nom_infographe?> CDD <br>
+
+                <input type="checkbox" name="stage" value="satge" id="" <?= $infographe['contrat_infographe'] == '"Stage"' ? "checked" :"" ?>> Stage <br>
+                <input type="checkbox" name="cdi" value="cdd" id="" <?= $infographe['contrat_infographe'] == '"cdd"' ? "checked" : "" ?>> CDD <br>
+                <input type="checkbox" name="cdi" value="freelance" id="" <?= $infographe['contrat_infographe'] == '"freelance"' ? "checked" : "" ?>> Freelance <br>
 
                 <h3>Diplome <span>(votre diplôme le plus recent)</span></h3>
                 <input type="text" id="commune" name="nom" required placeholder="Songon">
@@ -118,7 +123,7 @@ include('../database/infographe/infographe_request.php'); ?>
                         </div> -->
 
                 <h3>Contact <span></span></h3>
-                <input type="text" id="contact" name="nom" required placeholder="00 00 00 00 00">
+                <input type="text" id="contact" name="nom" value="<?= $infographe['telephone_infographe']  ?>" required placeholder="00 00 00 00 00">
 
 
                 <!-- <h3>Déposer son cv <span></span></h3>

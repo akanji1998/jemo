@@ -6,7 +6,7 @@ include('../database/infographe/infographe_request.php'); ?>
 
 <head>
     <meta charset="utf-8" />
-      <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- <link rel="stylesheet" href="style.css"> -->
 
@@ -62,7 +62,7 @@ include('../database/infographe/infographe_request.php'); ?>
 
         <div class="rectangle-div">
             <div class="title_infographiste">
-                Motion designer
+                <?= $infographe['specialite_infographe'] ?>
             </div>
             <!-- juste un design -->
             <div class="infographiste_summ">
@@ -73,7 +73,8 @@ include('../database/infographe/infographe_request.php'); ?>
 
                     <div class="box_summ">
                         <div class="origin_x_name">
-                            <div class="name">Say Christ Emmanuel</div>
+                            <div class="name"><?= $infographe['nom_infographe'] ?>
+                                <?= $infographe['prenom_infographe'] ?></div>
                             <div class="origin">Côte d'ivoire, Songon</div>
                         </div>
 
@@ -82,9 +83,9 @@ include('../database/infographe/infographe_request.php'); ?>
 
                         <div class="title_contract">Contrat</div>
                         <div class="contract">
-                            <span>CDD</span>
-                            <span>STAGE</span>
-                            <span>CDI</span>
+                            <span><?= $infographe['contrat_infographe'] ?></span>
+                            <!-- <span>STAGE</span>
+                            <span>CDI</span> -->
                         </div>
 
                         <div class="title_diplome">Diplome</div>
@@ -113,19 +114,24 @@ include('../database/infographe/infographe_request.php'); ?>
 
 
             <div class="boxmindset_infographiste">
-                <h4 class="mindset">Mindset</h4>
+                <h4 class="mindset">Presentation</h4>
                 <p class="text_mindset">
-                    "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...
-                    "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...
+                    <?= $infographe['description_infographe'] ?>
                 </p>
 
                 <h4 class="portfolio">Portfolio</h4>
                 <div class="box_illustation_created">
+                    <?php
+                        foreach ($realisations as $afficher ) {
+                            # code...
+                        
+                    ?>
                     <div class="card_illustration_created illustration_01">
                         <p class="illustration_description">
-                            Spot animatique et motion <br> logo 2d / 3d
+                            <?= $afficher['libelle_realisation'] ?>
                         </p>
                     </div>
+                    <?php } ?>
                     <div class="card_illustration_created illustration_01">
                         <p class="illustration_description">
                             Conception de storyboard

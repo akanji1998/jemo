@@ -41,7 +41,7 @@
                         <ul>
                             <li class="to_be"><a href="infographe/inscription_infographiste.php">Devenir infographiste
                                 </a></li>
-                            <li class="to_be"><a href="annonceur/inscription_anonceur.php">Publier une annonce </a></li>
+                            <li class="to_be"><a href="<?php echo $_SESSION['user_type'] == "annoceur" ? "annonceur/dashboard.php" : "connexion.php"; ?>">Publier une annonce </a></li>
                         </ul>
                     </nav>
 
